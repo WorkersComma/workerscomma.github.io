@@ -10,33 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SelfDiagnosisIndexRouteImport } from './routes/self-diagnosis/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SelfDiagnosisIndexRoute = SelfDiagnosisIndexRouteImport.update({
+  id: '/self-diagnosis/',
+  path: '/self-diagnosis/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/self-diagnosis': typeof SelfDiagnosisIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/self-diagnosis': typeof SelfDiagnosisIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/self-diagnosis/': typeof SelfDiagnosisIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/self-diagnosis'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/self-diagnosis'
+  id: '__root__' | '/' | '/self-diagnosis/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SelfDiagnosisIndexRoute: typeof SelfDiagnosisIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +58,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/self-diagnosis/': {
+      id: '/self-diagnosis/'
+      path: '/self-diagnosis'
+      fullPath: '/self-diagnosis'
+      preLoaderRoute: typeof SelfDiagnosisIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SelfDiagnosisIndexRoute: SelfDiagnosisIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

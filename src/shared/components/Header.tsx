@@ -16,7 +16,7 @@ export const Header: FC = () => {
   return (
     <header>
       <nav>
-        <ul className="flex justify-between items-center border-b-[1px] px-[10px] py-[6px] border-b-[#E5E5E5]">
+        <ul className="h-[var(--header-height)] flex justify-between items-center border-b-[1px] px-[10px] py-[6px] border-b-[#E5E5E5]">
           <li>
             <Link to="/" aria-label="홈으로 이동">
               <img
