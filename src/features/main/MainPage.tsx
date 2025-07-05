@@ -5,7 +5,7 @@ import mainLogo2x from "./assets/main-logo@2x.webp";
 
 export const MainPage: FC = () => {
   return (
-    <section className="bg-[#EDF4FF] h-[calc(100vh-var(--header-height))] flex flex-col gap-4 items-center p-4">
+    <div className="flex flex-col gap-4 items-center p-4">
       <div>
         <img src={mainLogo} srcSet={`${mainLogo2x} 2x`} alt="메인 로고" />
       </div>
@@ -70,6 +70,6 @@ export const MainPage: FC = () => {
           “쉼표를 찍자, 워커스콤마와 함께!”
         </span>
       </p>
-    </section>
+    </div>
   );
 };
