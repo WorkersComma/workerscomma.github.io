@@ -6,13 +6,12 @@ import depression from "./assets/depression.webp";
 import depression2x from "./assets/depression@2x.webp";
 import stress from "./assets/stress.webp";
 import stress2x from "./assets/stress@2x.webp";
+import { Heading1 } from "../../shared/components/Heading1";
 
 export const SelfDiagnosisIndexPage: FC = () => {
   return (
     <div className="flex flex-col items-center p-5 **:leading-5">
-      <h1 className="w-[283px] h-[43px] flex justify-center items-center bg-[#245768] text-white font-bold rounded-[40px] text-[1.25rem]">
-        정신건강 자가진단 테스트
-      </h1>
+      <Heading1>정신건강 자가진단 테스트</Heading1>
 
       <h2 className="font-medium mt-4">
         업무를 잠깐 멈추고, 나의 마음을 살펴보세요.
