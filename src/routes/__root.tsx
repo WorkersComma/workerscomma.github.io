@@ -6,7 +6,7 @@ export const Route = createRootRoute({
   component: () => (
     <>
       <Header />
-      <section className="bg-[#EDF4FF] h-[calc(100vh-var(--header-height))]">
+      <section className="bg-[#EDF4FF] min-h-[calc(100vh-var(--header-height))]">
         <Outlet />
       </section>
       <TanStackRouterDevtools />
