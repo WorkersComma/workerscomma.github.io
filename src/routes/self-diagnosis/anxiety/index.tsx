@@ -1,9 +1,14 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
+import { AnxietyTestPage } from "../../../features/self-diagnosis/anxiety/AnxietyTestPage";
 
-export const Route = createFileRoute('/self-diagnosis/anxiety/')({
+export const Route = createFileRoute("/self-diagnosis/anxiety/")({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
-  return <div>Hello "/self-diagnosis/anxiety/"!</div>
+  return (
+    <div>
+      <AnxietyTestPage />
+    </div>
+  );
 }
