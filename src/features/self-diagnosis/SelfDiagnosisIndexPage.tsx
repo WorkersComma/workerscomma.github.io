@@ -1,11 +1,11 @@
 import type { FC } from "react";
+import { Link } from "@tanstack/react-router";
 import anxiety from "./assets/anxiety.webp";
 import anxiety2x from "./assets/anxiety@2x.webp";
 import depression from "./assets/depression.webp";
 import depression2x from "./assets/depression@2x.webp";
 import stress from "./assets/stress.webp";
 import stress2x from "./assets/stress@2x.webp";
-import { Link } from "@tanstack/react-router";
 
 export const SelfDiagnosisIndexPage: FC = () => {
   return (
