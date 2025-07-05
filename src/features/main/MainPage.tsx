@@ -7,7 +7,13 @@ export const MainPage: FC = () => {
   return (
     <div className="flex flex-col gap-4 items-center p-4">
       <div>
-        <img src={mainLogo} srcSet={`${mainLogo2x} 2x`} alt="메인 로고" />
+        <h1 aria-label="워커스콤마">
+          <img
+            src={mainLogo}
+            srcSet={`${mainLogo2x} 2x`}
+            alt="워커스 메인 로고"
+          />
+        </h1>
       </div>
 
       <div className="w-[268px] *:h-[128px] *:bg-white *:active:bg-[#E7F8F4] *:rounded-[20px] *:border *:border-[#E8EBEF] *:active:border-[#65A595] flex gap-3 flex-wrap *:text-[14px] *:flex *:flex-col *:pt-[24px] *:gap-1 *:items-center">
