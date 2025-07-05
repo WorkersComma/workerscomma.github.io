@@ -19,7 +19,7 @@ export const AnxietyTestPage: FC = () => {
         얼마나 자주 방해를 받았는지 응답하여 주시길 바랍니다.
       </p>
 
-      <div className="relative">
+      <div className="relative w-full">
         <img
           className="absolute z-10 bg-transparent pointer-events-none -right-[20px] -top-[35px]"
           src={magnifier}
@@ -36,14 +36,14 @@ export const AnxietyTestPage: FC = () => {
           {testSet.map((test, index) => (
             <div
               key={test.question}
-              className="border-b last-of-type:border-none border-b-[#E5E5E5] p-1 pb-2"
+              className="w-full border-b last-of-type:border-none border-b-[#E5E5E5] p-1 pb-2"
             >
-              <fieldset>
+              <fieldset className="@container w-full">
                 <legend className="font-medium text-[0.875rem]">
                   {index + 1}. {test.question}
                 </legend>
 
-                <div className="mt-2 flex flex-wrap gap-1 justify-around">
+                <div className="mt-2 flex flex-wrap gap-1 justify-around @min-[351px]:justify-start">
                   {test.options.map((option) => (
                     <div
                       key={`${test.question}-${option.label}`}
