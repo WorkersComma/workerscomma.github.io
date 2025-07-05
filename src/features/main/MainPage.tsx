@@ -16,7 +16,7 @@ export const MainPage: FC = () => {
         </h1>
       </div>
 
-      <div className="w-[268px] *:h-[128px] *:bg-white *:active:bg-[#E7F8F4] *:rounded-[20px] *:border *:border-[#E8EBEF] *:active:border-[#65A595] flex gap-3 flex-wrap *:text-[14px] *:flex *:flex-col *:pt-[24px] *:gap-1 *:items-center">
+      <div className="w-[268px] *:h-[128px] *:bg-white *:active:bg-[#E7F8F4] *:rounded-[20px] *:border *:border-[#E8EBEF] *:active:border-[#65A595] flex gap-3 flex-wrap *:text-[0.875rem] *:flex *:flex-col *:pt-[24px] *:gap-1 *:items-center">
         <Link className="basis-full " to="/self-diagnosis">
           <svg
             width="70"
@@ -66,7 +66,7 @@ export const MainPage: FC = () => {
         </div>
       </div>
 
-      <p className="text-center text-[14px] leading-4">
+      <p className="text-center text-[0.875rem] leading-4">
         <span className="text-[#245768]">워커스콤마(workers' comma)</span>는
         근로자들이
         <br />
