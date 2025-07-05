@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import { Heading1 } from "../../../shared/components/Heading1";
+import testSet from "./test-set.json";
 
 export const StressTestPage: FC = () => {
   return (
