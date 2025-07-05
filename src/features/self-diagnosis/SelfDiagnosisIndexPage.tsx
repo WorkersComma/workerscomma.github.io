@@ -42,6 +42,7 @@ export const SelfDiagnosisIndexPage: FC = () => {
       <ul className="*:flex *:gap-[22px] *:justify-between *:items-center">
         <li>
           <img
+            className="w-[88px] h-[81px]"
             src={depression}
             srcSet={`${depression2x} 2x`}
             alt="우울 이모지"
@@ -56,7 +57,12 @@ export const SelfDiagnosisIndexPage: FC = () => {
         </li>
 
         <li>
-          <img src={anxiety} srcSet={`${anxiety2x} 2x`} alt="불안감 이모지" />
+          <img
+            className="w-[88px] h-[75px]"
+            src={anxiety}
+            srcSet={`${anxiety2x} 2x`}
+            alt="불안감 이모지"
+          />
 
           <Link
             className="w-[103px] h-[40px] flex justify-center items-center bg-[#65A595] rounded-[40px] font-bold text-[1.125rem] text-white"
@@ -67,7 +73,12 @@ export const SelfDiagnosisIndexPage: FC = () => {
         </li>
 
         <li>
-          <img src={stress} srcSet={`${stress2x} 2x`} alt="불안감 이모지" />
+          <img
+            className="w-[79px] h-[83px]"
+            src={stress}
+            srcSet={`${stress2x} 2x`}
+            alt="불안감 이모지"
+          />
 
           <Link
             className="w-[130px] h-[40px] flex justify-center items-center bg-[#65A595] rounded-[40px] font-bold text-[1.125rem] text-white"

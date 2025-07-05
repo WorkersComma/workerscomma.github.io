@@ -9,6 +9,7 @@ export const MainPage: FC = () => {
       <div>
         <h1 aria-label="워커스콤마">
           <img
+            className="w-[156px] h-[151px]"
             src={mainLogo}
             srcSet={`${mainLogo2x} 2x`}
             alt="워커스 메인 로고"
