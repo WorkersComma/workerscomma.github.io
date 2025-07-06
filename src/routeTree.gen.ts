@@ -14,6 +14,9 @@ import { Route as SelfDiagnosisIndexRouteImport } from './routes/self-diagnosis/
 import { Route as SelfDiagnosisStressIndexRouteImport } from './routes/self-diagnosis/stress/index'
 import { Route as SelfDiagnosisDepressionIndexRouteImport } from './routes/self-diagnosis/depression/index'
 import { Route as SelfDiagnosisAnxietyIndexRouteImport } from './routes/self-diagnosis/anxiety/index'
+import { Route as SelfDiagnosisStressResultRouteImport } from './routes/self-diagnosis/stress/result'
+import { Route as SelfDiagnosisDepressionResultRouteImport } from './routes/self-diagnosis/depression/result'
+import { Route as SelfDiagnosisAnxietyResultRouteImport } from './routes/self-diagnosis/anxiety/result'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -43,10 +46,31 @@ const SelfDiagnosisAnxietyIndexRoute =
     path: '/self-diagnosis/anxiety/',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SelfDiagnosisStressResultRoute =
+  SelfDiagnosisStressResultRouteImport.update({
+    id: '/self-diagnosis/stress/result',
+    path: '/self-diagnosis/stress/result',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SelfDiagnosisDepressionResultRoute =
+  SelfDiagnosisDepressionResultRouteImport.update({
+    id: '/self-diagnosis/depression/result',
+    path: '/self-diagnosis/depression/result',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SelfDiagnosisAnxietyResultRoute =
+  SelfDiagnosisAnxietyResultRouteImport.update({
+    id: '/self-diagnosis/anxiety/result',
+    path: '/self-diagnosis/anxiety/result',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/self-diagnosis': typeof SelfDiagnosisIndexRoute
+  '/self-diagnosis/anxiety/result': typeof SelfDiagnosisAnxietyResultRoute
+  '/self-diagnosis/depression/result': typeof SelfDiagnosisDepressionResultRoute
+  '/self-diagnosis/stress/result': typeof SelfDiagnosisStressResultRoute
   '/self-diagnosis/anxiety': typeof SelfDiagnosisAnxietyIndexRoute
   '/self-diagnosis/depression': typeof SelfDiagnosisDepressionIndexRoute
   '/self-diagnosis/stress': typeof SelfDiagnosisStressIndexRoute
@@ -54,6 +78,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/self-diagnosis': typeof SelfDiagnosisIndexRoute
+  '/self-diagnosis/anxiety/result': typeof SelfDiagnosisAnxietyResultRoute
+  '/self-diagnosis/depression/result': typeof SelfDiagnosisDepressionResultRoute
+  '/self-diagnosis/stress/result': typeof SelfDiagnosisStressResultRoute
   '/self-diagnosis/anxiety': typeof SelfDiagnosisAnxietyIndexRoute
   '/self-diagnosis/depression': typeof SelfDiagnosisDepressionIndexRoute
   '/self-diagnosis/stress': typeof SelfDiagnosisStressIndexRoute
@@ -62,6 +89,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/self-diagnosis/': typeof SelfDiagnosisIndexRoute
+  '/self-diagnosis/anxiety/result': typeof SelfDiagnosisAnxietyResultRoute
+  '/self-diagnosis/depression/result': typeof SelfDiagnosisDepressionResultRoute
+  '/self-diagnosis/stress/result': typeof SelfDiagnosisStressResultRoute
   '/self-diagnosis/anxiety/': typeof SelfDiagnosisAnxietyIndexRoute
   '/self-diagnosis/depression/': typeof SelfDiagnosisDepressionIndexRoute
   '/self-diagnosis/stress/': typeof SelfDiagnosisStressIndexRoute
@@ -71,6 +101,9 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/self-diagnosis'
+    | '/self-diagnosis/anxiety/result'
+    | '/self-diagnosis/depression/result'
+    | '/self-diagnosis/stress/result'
     | '/self-diagnosis/anxiety'
     | '/self-diagnosis/depression'
     | '/self-diagnosis/stress'
@@ -78,6 +111,9 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/self-diagnosis'
+    | '/self-diagnosis/anxiety/result'
+    | '/self-diagnosis/depression/result'
+    | '/self-diagnosis/stress/result'
     | '/self-diagnosis/anxiety'
     | '/self-diagnosis/depression'
     | '/self-diagnosis/stress'
@@ -85,6 +121,9 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/self-diagnosis/'
+    | '/self-diagnosis/anxiety/result'
+    | '/self-diagnosis/depression/result'
+    | '/self-diagnosis/stress/result'
     | '/self-diagnosis/anxiety/'
     | '/self-diagnosis/depression/'
     | '/self-diagnosis/stress/'
@@ -93,6 +132,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SelfDiagnosisIndexRoute: typeof SelfDiagnosisIndexRoute
+  SelfDiagnosisAnxietyResultRoute: typeof SelfDiagnosisAnxietyResultRoute
+  SelfDiagnosisDepressionResultRoute: typeof SelfDiagnosisDepressionResultRoute
+  SelfDiagnosisStressResultRoute: typeof SelfDiagnosisStressResultRoute
   SelfDiagnosisAnxietyIndexRoute: typeof SelfDiagnosisAnxietyIndexRoute
   SelfDiagnosisDepressionIndexRoute: typeof SelfDiagnosisDepressionIndexRoute
   SelfDiagnosisStressIndexRoute: typeof SelfDiagnosisStressIndexRoute
@@ -135,12 +177,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SelfDiagnosisAnxietyIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/self-diagnosis/stress/result': {
+      id: '/self-diagnosis/stress/result'
+      path: '/self-diagnosis/stress/result'
+      fullPath: '/self-diagnosis/stress/result'
+      preLoaderRoute: typeof SelfDiagnosisStressResultRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/self-diagnosis/depression/result': {
+      id: '/self-diagnosis/depression/result'
+      path: '/self-diagnosis/depression/result'
+      fullPath: '/self-diagnosis/depression/result'
+      preLoaderRoute: typeof SelfDiagnosisDepressionResultRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/self-diagnosis/anxiety/result': {
+      id: '/self-diagnosis/anxiety/result'
+      path: '/self-diagnosis/anxiety/result'
+      fullPath: '/self-diagnosis/anxiety/result'
+      preLoaderRoute: typeof SelfDiagnosisAnxietyResultRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SelfDiagnosisIndexRoute: SelfDiagnosisIndexRoute,
+  SelfDiagnosisAnxietyResultRoute: SelfDiagnosisAnxietyResultRoute,
+  SelfDiagnosisDepressionResultRoute: SelfDiagnosisDepressionResultRoute,
+  SelfDiagnosisStressResultRoute: SelfDiagnosisStressResultRoute,
   SelfDiagnosisAnxietyIndexRoute: SelfDiagnosisAnxietyIndexRoute,
   SelfDiagnosisDepressionIndexRoute: SelfDiagnosisDepressionIndexRoute,
   SelfDiagnosisStressIndexRoute: SelfDiagnosisStressIndexRoute,
