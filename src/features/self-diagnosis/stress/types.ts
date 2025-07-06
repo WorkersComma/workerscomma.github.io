@@ -1,5 +1,6 @@
 export type Test =
   | {
+      id: number;
       type: "성별";
       question: string;
       options: [
@@ -14,6 +15,7 @@ export type Test =
       ];
     }
   | {
+      id: number;
       type:
         | "물리환경"
         | "직무요구"
