@@ -1,5 +1,6 @@
 import { useEffect, type FC } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
+import { useNavigate } from "@tanstack/react-router";
 import { Heading1 } from "../../../shared/components/Heading1";
 import testSetJson from "./test-set.json";
 import type { TestSet } from "./types";
@@ -11,6 +12,7 @@ const testSet = testSetJson as TestSet;
 type Inputs = { [key: string]: string };
 
 export const StressTestPage: FC = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -19,7 +21,16 @@ export const StressTestPage: FC = () => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+    const score = Object.values(data)
+      .map((value) => parseInt(value, 10))
+      .reduce((a, b) => a + b);
+
+    navigate({
+      to: "/self-diagnosis/anxiety/result",
+      search: {
+        score,
+      },
+    });
   };
 
   useEffect(() => {
