@@ -5,7 +5,7 @@ import testSet from "./test-set.json";
 import magnifier from "../assets/magnifier.webp";
 import magnifier2x from "../assets/magnifier@2x.webp";
 
-type Inputs = { [key: string]: number };
+type Inputs = { [key: string]: string };
 
 export const DepressionTestPage: FC = () => {
   const {

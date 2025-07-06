@@ -8,7 +8,7 @@ import magnifier2x from "../assets/magnifier@2x.webp";
 
 const testSet = testSetJson as TestSet;
 
-type Inputs = { [key: string]: number };
+type Inputs = { [key: string]: string };
 
 export const StressTestPage: FC = () => {
   const {
