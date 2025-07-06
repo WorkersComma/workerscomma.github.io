@@ -6,11 +6,11 @@
     "options": [
       {
         "label": "남자",
-        "value": "남자"
+        "value": "MALE"
       },
       {
         "label": "여자",
-        "value": "여자"
+        "value": "FEMALE"
       }
     ]
   },

@@ -6,11 +6,11 @@ export type Test =
       options: [
         {
           label: string;
-          value: "남자";
+          value: "MALE";
         },
         {
           label: string;
-          value: "여자";
+          value: "FEMALE";
         }
       ];
     }
