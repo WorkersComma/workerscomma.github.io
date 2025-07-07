@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as HelpRouteImport } from './routes/help'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SelfDiagnosisIndexRouteImport } from './routes/self-diagnosis/index'
 import { Route as SelfDiagnosisStressIndexRouteImport } from './routes/self-diagnosis/stress/index'
@@ -18,6 +19,11 @@ import { Route as SelfDiagnosisStressResultRouteImport } from './routes/self-dia
 import { Route as SelfDiagnosisDepressionResultRouteImport } from './routes/self-diagnosis/depression/result'
 import { Route as SelfDiagnosisAnxietyResultRouteImport } from './routes/self-diagnosis/anxiety/result'
 
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -67,6 +73,7 @@ const SelfDiagnosisAnxietyResultRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/help': typeof HelpRoute
   '/self-diagnosis': typeof SelfDiagnosisIndexRoute
   '/self-diagnosis/anxiety/result': typeof SelfDiagnosisAnxietyResultRoute
   '/self-diagnosis/depression/result': typeof SelfDiagnosisDepressionResultRoute
@@ -77,6 +84,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/help': typeof HelpRoute
   '/self-diagnosis': typeof SelfDiagnosisIndexRoute
   '/self-diagnosis/anxiety/result': typeof SelfDiagnosisAnxietyResultRoute
   '/self-diagnosis/depression/result': typeof SelfDiagnosisDepressionResultRoute
@@ -88,6 +96,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/help': typeof HelpRoute
   '/self-diagnosis/': typeof SelfDiagnosisIndexRoute
   '/self-diagnosis/anxiety/result': typeof SelfDiagnosisAnxietyResultRoute
   '/self-diagnosis/depression/result': typeof SelfDiagnosisDepressionResultRoute
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/help'
     | '/self-diagnosis'
     | '/self-diagnosis/anxiety/result'
     | '/self-diagnosis/depression/result'
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/help'
     | '/self-diagnosis'
     | '/self-diagnosis/anxiety/result'
     | '/self-diagnosis/depression/result'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/help'
     | '/self-diagnosis/'
     | '/self-diagnosis/anxiety/result'
     | '/self-diagnosis/depression/result'
@@ -131,6 +143,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  HelpRoute: typeof HelpRoute
   SelfDiagnosisIndexRoute: typeof SelfDiagnosisIndexRoute
   SelfDiagnosisAnxietyResultRoute: typeof SelfDiagnosisAnxietyResultRoute
   SelfDiagnosisDepressionResultRoute: typeof SelfDiagnosisDepressionResultRoute
@@ -142,6 +155,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -203,6 +223,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  HelpRoute: HelpRoute,
   SelfDiagnosisIndexRoute: SelfDiagnosisIndexRoute,
   SelfDiagnosisAnxietyResultRoute: SelfDiagnosisAnxietyResultRoute,
   SelfDiagnosisDepressionResultRoute: SelfDiagnosisDepressionResultRoute,
