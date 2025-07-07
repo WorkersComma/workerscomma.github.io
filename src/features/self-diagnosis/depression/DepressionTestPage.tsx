@@ -68,7 +68,7 @@ export const DepressionTestPage: FC = () => {
             >
               <fieldset className="@container w-full">
                 <legend
-                  className={`font-medium text-[0.875rem]${
+                  className={`font-medium text-[0.875rem] whitespace-pre-line${
                     errors[test.id] ? " text-red-500" : ""
                   }`}
                 >
