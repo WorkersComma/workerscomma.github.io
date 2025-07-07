@@ -23,7 +23,7 @@ export const DepressionTestPage: FC = () => {
       .reduce((a, b) => a + b);
 
     navigate({
-      to: "/self-diagnosis/anxiety/result",
+      to: "/self-diagnosis/depression/result",
       search: {
         score,
       },

@@ -21,15 +21,79 @@ export const StressTestPage: FC = () => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    const score = Object.values(data)
+    const score = Object.keys(data)
       .map((value) => parseInt(value, 10))
-      .reduce((a, b) => a + b);
+      .reduce(
+        (acc, cur) => {
+          if (cur === 1) {
+            acc.gender = data[cur] as "MALE" | "FEMALE";
+            return acc;
+          }
+
+          if (cur < 4) {
+            acc.t1 += parseInt(data[cur], 10);
+            return acc;
+          }
+
+          if (cur < 7) {
+            acc.t2 += parseInt(data[cur], 10);
+            return acc;
+          }
+
+          if (cur < 9) {
+            acc.t3 += parseInt(data[cur], 10);
+            return acc;
+          }
+
+          if (cur < 11) {
+            acc.t4 += parseInt(data[cur], 10);
+            return acc;
+          }
+
+          if (cur < 13) {
+            acc.t5 += parseInt(data[cur], 10);
+            return acc;
+          }
+
+          if (cur < 17) {
+            acc.t6 += parseInt(data[cur], 10);
+            return acc;
+          }
+
+          if (cur < 19) {
+            acc.t7 += parseInt(data[cur], 10);
+            return acc;
+          }
+
+          acc.t8 += parseInt(data[cur], 10);
+          return acc;
+        },
+        {
+          gender: "MALE",
+          t1: 0,
+          t2: 0,
+          t3: 0,
+          t4: 0,
+          t5: 0,
+          t6: 0,
+          t7: 0,
+          t8: 0,
+        } as {
+          gender: "MALE" | "FEMALE";
+          t1: number;
+          t2: number;
+          t3: number;
+          t4: number;
+          t5: number;
+          t6: number;
+          t7: number;
+          t8: number;
+        }
+      );
 
     navigate({
-      to: "/self-diagnosis/anxiety/result",
-      search: {
-        score,
-      },
+      to: "/self-diagnosis/stress/result",
+      search: score,
     });
   };
 
