@@ -1,15 +1,28 @@
-import { Outlet, createRootRoute } from "@tanstack/react-router";
+import { Outlet, createRootRoute, useLocation } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import { Header } from "../shared/components/Header";
 
 export const Route = createRootRoute({
-  component: () => (
-    <>
-      <Header />
-      <section className="bg-[#EDF4FF] min-h-[calc(100vh-var(--header-height))]">
-        <Outlet />
-      </section>
-      <TanStackRouterDevtools />
-    </>
-  ),
+  component: () => {
+    const location = useLocation();
+
+    const bgColor =
+      location.pathname.includes("result") ||
+      location.pathname.includes("help") ||
+      location.pathname.includes("write")
+        ? "bg-[#FDFEEA]"
+        : "bg-[#EDF4FF]";
+
+    return (
+      <>
+        <Header />
+        <section
+          className={"min-h-[calc(100vh-var(--header-height))] " + bgColor}
+        >
+          <Outlet />
+        </section>
+        <TanStackRouterDevtools />
+      </>
+    );
+  },
 });
