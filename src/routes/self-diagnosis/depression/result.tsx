@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { DepressionResultPage } from "../../../features/self-diagnosis/depression/DepressionResultPage";
 
 export const Route = createFileRoute("/self-diagnosis/depression/result")({
   component: RouteComponent,
@@ -10,5 +11,5 @@ export const Route = createFileRoute("/self-diagnosis/depression/result")({
 });
 
 function RouteComponent() {
-  return <div>Hello "/self-diagnosis/depression/result"!</div>;
+  return <DepressionResultPage />;
 }
