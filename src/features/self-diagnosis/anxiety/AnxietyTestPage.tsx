@@ -84,6 +84,7 @@ export const AnxietyTestPage: FC = () => {
                       className="flex items-center gap-0.5"
                     >
                       <input
+                        className="cursor-pointer"
                         type="radio"
                         id={`${test.id}-${option.value}`}
                         defaultValue={option.value}
@@ -91,7 +92,7 @@ export const AnxietyTestPage: FC = () => {
                       />
                       <label
                         htmlFor={`${test.id}-${option.value}`}
-                        className="text-[0.75rem] font-medium text-[#636363]"
+                        className="cursor-pointer text-[0.75rem] font-medium text-[#636363]"
                       >
                         {option.label}
                       </label>
@@ -104,7 +105,7 @@ export const AnxietyTestPage: FC = () => {
 
           <button
             type="submit"
-            className="w-[188px] h-[50px] rounded-[40px] bg-[#65A595] text-white font-bold text-[1.25rem] shadow-[0px_4px_4px_rgb(0_0_0/0.25)]"
+            className="cursor-pointer w-[188px] h-[50px] rounded-[40px] bg-[#ACC9C2] hover:bg-[#65A595] active:bg-[#65A595] text-white font-bold text-[1.25rem] shadow-[0px_4px_4px_rgb(0_0_0/0.25)]"
           >
             결과 보러가기
           </button>
