@@ -75,11 +75,11 @@ export const DepressionTestPage: FC = () => {
                   {index + 1}. {test.question}
                 </legend>
 
-                <div className="mt-2 flex flex-wrap gap-1 justify-around @min-[351px]:justify-start">
+                <div className="mt-2 flex flex-wrap gap-1 md:gap-4 justify-between @min-[351px]:justify-start">
                   {test.options.map((option) => (
                     <div
                       key={`${test.id}-${option.value}`}
-                      className="flex items-center gap-1"
+                      className="flex items-center gap-0.5"
                     >
                       <input
                         type="radio"
