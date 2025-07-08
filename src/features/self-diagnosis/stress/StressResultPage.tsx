@@ -30,11 +30,11 @@ export const StressResultPage: FC = () => {
         : "danger";
     const heading =
       resultSet.t1[status].headings[
-        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+        Math.floor(Math.random() * resultSet.t1[status].headings.length)
       ];
     const description =
       resultSet.t1[status].descriptions[
-        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+        Math.floor(Math.random() * resultSet.t1[status].descriptions.length)
       ];
 
     if (status === "normal") {
@@ -73,11 +73,11 @@ export const StressResultPage: FC = () => {
 
     const heading =
       resultSet.t2[status].headings[
-        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+        Math.floor(Math.random() * resultSet.t2[status].headings.length)
       ];
     const description =
       resultSet.t2[status].descriptions[
-        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+        Math.floor(Math.random() * resultSet.t2[status].descriptions.length)
       ];
 
     if (status === "normal") {
@@ -115,11 +115,11 @@ export const StressResultPage: FC = () => {
         : "danger";
     const heading =
       resultSet.t3[status].headings[
-        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+        Math.floor(Math.random() * resultSet.t3[status].headings.length)
       ];
     const description =
       resultSet.t3[status].descriptions[
-        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+        Math.floor(Math.random() * resultSet.t3[status].descriptions.length)
       ];
 
     if (status === "normal") {
@@ -157,11 +157,11 @@ export const StressResultPage: FC = () => {
         : "danger";
     const heading =
       resultSet.t4[status].headings[
-        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+        Math.floor(Math.random() * resultSet.t4[status].headings.length)
       ];
     const description =
       resultSet.t4[status].descriptions[
-        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+        Math.floor(Math.random() * resultSet.t4[status].descriptions.length)
       ];
 
     if (status === "normal") {
@@ -199,11 +199,11 @@ export const StressResultPage: FC = () => {
         : "danger";
     const heading =
       resultSet.t5[status].headings[
-        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+        Math.floor(Math.random() * resultSet.t5[status].headings.length)
       ];
     const description =
       resultSet.t5[status].descriptions[
-        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+        Math.floor(Math.random() * resultSet.t5[status].descriptions.length)
       ];
 
     if (status === "normal") {
@@ -241,11 +241,11 @@ export const StressResultPage: FC = () => {
         : "danger";
     const heading =
       resultSet.t6[status].headings[
-        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+        Math.floor(Math.random() * resultSet.t6[status].headings.length)
       ];
     const description =
       resultSet.t6[status].descriptions[
-        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+        Math.floor(Math.random() * resultSet.t6[status].descriptions.length)
       ];
 
     if (status === "normal") {
@@ -283,11 +283,11 @@ export const StressResultPage: FC = () => {
         : "danger";
     const heading =
       resultSet.t7[status].headings[
-        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+        Math.floor(Math.random() * resultSet.t7[status].headings.length)
       ];
     const description =
       resultSet.t7[status].descriptions[
-        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+        Math.floor(Math.random() * resultSet.t7[status].descriptions.length)
       ];
 
     if (status === "normal") {
@@ -325,11 +325,11 @@ export const StressResultPage: FC = () => {
         : "danger";
     const heading =
       resultSet.t8[status].headings[
-        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+        Math.floor(Math.random() * resultSet.t8[status].headings.length)
       ];
     const description =
       resultSet.t8[status].descriptions[
-        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+        Math.floor(Math.random() * resultSet.t8[status].descriptions.length)
       ];
 
     if (status === "normal") {
@@ -384,7 +384,7 @@ export const StressResultPage: FC = () => {
         {allData.map((data) => (
           <li
             key={data.title}
-            className="p-1 w-[150px] rounded-[5px] border border-[#A29898] flex flex-col items-center"
+            className="p-1 flex-1 basis-[150px] rounded-[5px] border border-[#A29898] flex flex-col items-center"
           >
             <h2 className="w-[75px] h-[24px] rounded-[5px] bg-[#D9D9D9] text-black font-semibold text-[0.875rem] flex justify-center items-center">
               {data.title}
