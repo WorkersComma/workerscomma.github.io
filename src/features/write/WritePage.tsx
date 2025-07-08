@@ -1,8 +1,7 @@
 import { useState, type FC } from "react";
 import { Heading1 } from "../../shared/components/Heading1";
 
-const SENTENCE =
-  "작은 성취가 큰 변화를 이끈다. 좀 더 긴 문장을 테스트 해봐야 한다.";
+const SENTENCE = "작은 성취가 큰 변화를 이끈다.";
 
 export const WritePage: FC = () => {
   const [value, setValue] = useState("");
