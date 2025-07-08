@@ -88,7 +88,7 @@ export const DepressionResultPage: FC = () => {
         {heading2}
       </h2>
 
-      <p className="mt-1 font-semibold text-[0.875rem] text-center whitespace-pre-line break-keep">
+      <p className="mt-1 font-semibold text-[0.875rem] text-center whitespace-pre-line break-keep max-w-xs">
         {paragraph}
       </p>
 
