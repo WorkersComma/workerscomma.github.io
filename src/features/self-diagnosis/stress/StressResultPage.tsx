@@ -371,7 +371,7 @@ export const StressResultPage: FC = () => {
   ].sort((a, b) => {
     if (a.status === b.status) return 0;
 
-    if (!a.status) return -1;
+    if (a.status === "danger") return -1;
 
     return 1;
   });
@@ -380,11 +380,11 @@ export const StressResultPage: FC = () => {
     <div className="flex flex-col items-center p-4">
       <Heading1>귀하의 직무 스트레스는..</Heading1>
 
-      <ul className="mt-4 max-w-3xl flex gap-3 justify-center items-center flex-wrap">
+      <ul className="mt-4 max-w-3xl flex gap-3 justify-center flex-wrap">
         {allData.map((data) => (
           <li
             key={data.title}
-            className="p-1 w-[150px] h-[210px] rounded-[5px] border border-[#A29898] flex flex-col items-center"
+            className="p-1 w-[150px] rounded-[5px] border border-[#A29898] flex flex-col items-center"
           >
             <h2 className="w-[75px] h-[24px] rounded-[5px] bg-[#D9D9D9] text-black font-semibold text-[0.875rem] flex justify-center items-center">
               {data.title}
@@ -402,11 +402,11 @@ export const StressResultPage: FC = () => {
               {data.scoreDescription}
             </p>
 
-            <h3 className="font-semibold text-black whitespace-pre-line">
+            <h3 className="font-semibold text-black whitespace-pre-line text-center">
               {data.heading}
             </h3>
 
-            <p className="font-semibold text-[0.875rem] whitespace-pre-line">
+            <p className="mt-2 font-semibold text-[0.875rem] whitespace-pre-line text-center">
               {data.description}
             </p>
           </li>
