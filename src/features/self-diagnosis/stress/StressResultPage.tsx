@@ -5,6 +5,7 @@ import greenTherometer from "../assets/thermometers/green-thermometer.webp";
 import greenTherometer2x from "../assets/thermometers/green-thermometer@2x.webp";
 import darkRedTherometer from "../assets/thermometers/dark-red-thermometer.webp";
 import darkRedTherometer2x from "../assets/thermometers/dark-red-thermometer@2x.webp";
+import resultSet from "./result-set.json";
 
 export const StressResultPage: FC = () => {
   const {
@@ -23,20 +24,30 @@ export const StressResultPage: FC = () => {
 
   // 물리적 환경 데이터
   const t1Data = (() => {
-    const isGood =
-      (gender === "MALE" && t1 < 7) || (gender === "FEMALE" && t1 < 6);
+    const status: "normal" | "danger" =
+      (gender === "MALE" && t1 < 7) || (gender === "FEMALE" && t1 < 6)
+        ? "normal"
+        : "danger";
+    const heading =
+      resultSet.t1[status].headings[
+        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+      ];
+    const description =
+      resultSet.t1[status].descriptions[
+        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+      ];
 
-    if (isGood) {
+    if (status === "normal") {
       return {
         title: "물리적 환경",
         image: {
           src: greenTherometer,
           srcSet: `${greenTherometer2x} 2x`,
         },
-        isGood,
+        status,
         scoreDescription: <span className="text-[#83B583]">정상범위</span>,
-        heading: "",
-        description: "",
+        heading,
+        description,
       };
     }
 
@@ -46,234 +57,305 @@ export const StressResultPage: FC = () => {
         src: darkRedTherometer,
         srcSet: `${darkRedTherometer2x} 2x`,
       },
-      isGood,
+      status,
       scoreDescription: <span className="text-[#A84945]">위험수준</span>,
-      heading: "",
-      description: "",
+      heading,
+      description,
     };
   })();
 
   // 직무 요구 데이터
   const t2Data = (() => {
-    const isGood =
-      (gender === "MALE" && t2 < 8) || (gender === "FEMALE" && t2 < 10);
+    const status: "normal" | "danger" =
+      (gender === "MALE" && t2 < 6) || (gender === "FEMALE" && t2 < 8)
+        ? "normal"
+        : "danger";
 
-    if (isGood) {
+    const heading =
+      resultSet.t2[status].headings[
+        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+      ];
+    const description =
+      resultSet.t2[status].descriptions[
+        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+      ];
+
+    if (status === "normal") {
       return {
         title: "직무 요구",
-        isGood,
+        status,
         image: {
           src: greenTherometer,
           srcSet: `${greenTherometer2x} 2x`,
         },
         scoreDescription: <span className="text-[#83B583]">정상범위</span>,
-        heading: "",
-        description: "",
+        heading,
+        description,
       };
     }
 
     return {
       title: "직무 요구",
-      isGood,
+      status,
       image: {
         src: darkRedTherometer,
         srcSet: `${darkRedTherometer2x} 2x`,
       },
       scoreDescription: <span className="text-[#A84945]">위험수준</span>,
-      heading: "",
-      description: "",
+      heading,
+      description,
     };
   })();
 
   // 직무 자율 데이터
   const t3Data = (() => {
-    const isGood =
-      (gender === "MALE" && t3 < 5) || (gender === "FEMALE" && t3 < 7);
+    const status: "normal" | "danger" =
+      (gender === "MALE" && t3 < 5) || (gender === "FEMALE" && t3 < 7)
+        ? "normal"
+        : "danger";
+    const heading =
+      resultSet.t3[status].headings[
+        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+      ];
+    const description =
+      resultSet.t3[status].descriptions[
+        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+      ];
 
-    if (isGood) {
+    if (status === "normal") {
       return {
         title: "직무 자율",
-        isGood,
+        status,
         image: {
           src: greenTherometer,
           srcSet: `${greenTherometer2x} 2x`,
         },
         scoreDescription: <span className="text-[#83B583]">정상범위</span>,
-        heading: "",
-        description: "",
+        heading,
+        description,
       };
     }
 
     return {
       title: "직무 자율",
-      isGood,
+      status,
       image: {
         src: darkRedTherometer,
         srcSet: `${darkRedTherometer2x} 2x`,
       },
       scoreDescription: <span className="text-[#A84945]">위험수준</span>,
-      heading: "",
-      description: "",
+      heading,
+      description,
     };
   })();
 
   // 관계갈등 데이터
   const t4Data = (() => {
-    const isGood =
-      (gender === "MALE" && t4 < 5) || (gender === "FEMALE" && t4 < 7);
+    const status: "normal" | "danger" =
+      (gender === "MALE" && t4 < 5) || (gender === "FEMALE" && t4 < 7)
+        ? "normal"
+        : "danger";
+    const heading =
+      resultSet.t4[status].headings[
+        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+      ];
+    const description =
+      resultSet.t4[status].descriptions[
+        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+      ];
 
-    if (isGood) {
+    if (status === "normal") {
       return {
         title: "관계 갈등",
-        isGood,
+        status,
         image: {
           src: greenTherometer,
           srcSet: `${greenTherometer2x} 2x`,
         },
         scoreDescription: <span className="text-[#83B583]">정상범위</span>,
-        heading: "",
-        description: "",
+        heading,
+        description,
       };
     }
 
     return {
       title: "관계 갈등",
-      isGood,
+      status,
       image: {
         src: darkRedTherometer,
         srcSet: `${darkRedTherometer2x} 2x`,
       },
       scoreDescription: <span className="text-[#A84945]">위험수준</span>,
-      heading: "",
-      description: "",
+      heading,
+      description,
     };
   })();
 
   // 직무불안성 데이터
   const t5Data = (() => {
-    const isGood =
-      (gender === "MALE" && t5 < 6) || (gender === "FEMALE" && t5 < 5);
+    const status: "normal" | "danger" =
+      (gender === "MALE" && t5 < 6) || (gender === "FEMALE" && t5 < 5)
+        ? "normal"
+        : "danger";
+    const heading =
+      resultSet.t5[status].headings[
+        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+      ];
+    const description =
+      resultSet.t5[status].descriptions[
+        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+      ];
 
-    if (isGood) {
+    if (status === "normal") {
       return {
         title: "직무 불안정",
-        isGood,
+        status,
         image: {
           src: greenTherometer,
           srcSet: `${greenTherometer2x} 2x`,
         },
         scoreDescription: <span className="text-[#83B583]">정상범위</span>,
-        heading: "",
-        description: "",
+        heading,
+        description,
       };
     }
 
     return {
       title: "직무 불안정",
-      isGood,
+      status,
       image: {
         src: darkRedTherometer,
         srcSet: `${darkRedTherometer2x} 2x`,
       },
       scoreDescription: <span className="text-[#A84945]">위험수준</span>,
-      heading: "",
-      description: "",
+      heading,
+      description,
     };
   })();
 
   // 조직체계 데이터
   const t6Data = (() => {
-    const isGood =
-      (gender === "MALE" && t6 < 10) || (gender === "FEMALE" && t6 < 11);
+    const status: "normal" | "danger" =
+      (gender === "MALE" && t6 < 10) || (gender === "FEMALE" && t6 < 11)
+        ? "normal"
+        : "danger";
+    const heading =
+      resultSet.t6[status].headings[
+        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+      ];
+    const description =
+      resultSet.t6[status].descriptions[
+        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+      ];
 
-    if (isGood) {
+    if (status === "normal") {
       return {
         title: "조직체계",
-        isGood,
+        status,
         image: {
           src: greenTherometer,
           srcSet: `${greenTherometer2x} 2x`,
         },
         scoreDescription: <span className="text-[#83B583]">정상범위</span>,
-        heading: "",
-        description: "",
+        heading,
+        description,
       };
     }
 
     return {
       title: "조직체계",
-      isGood,
+      status,
       image: {
         src: darkRedTherometer,
         srcSet: `${darkRedTherometer2x} 2x`,
       },
       scoreDescription: <span className="text-[#A84945]">위험수준</span>,
-      heading: "",
-      description: "",
+      heading,
+      description,
     };
   })();
 
   // 보상부적절 데이터
   const t7Data = (() => {
-    const isGood =
-      (gender === "MALE" && t7 < 6) || (gender === "FEMALE" && t7 < 5);
+    const status: "normal" | "danger" =
+      (gender === "MALE" && t7 < 6) || (gender === "FEMALE" && t7 < 5)
+        ? "normal"
+        : "danger";
+    const heading =
+      resultSet.t7[status].headings[
+        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+      ];
+    const description =
+      resultSet.t7[status].descriptions[
+        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+      ];
 
-    if (isGood) {
+    if (status === "normal") {
       return {
         title: "보상 부적절",
-        isGood,
+        status,
         image: {
           src: greenTherometer,
           srcSet: `${greenTherometer2x} 2x`,
         },
         scoreDescription: <span className="text-[#83B583]">정상범위</span>,
-        heading: "",
-        description: "",
+        heading,
+        description,
       };
     }
 
     return {
       title: "보상 부적절",
-      isGood,
+      status,
       image: {
         src: darkRedTherometer,
         srcSet: `${darkRedTherometer2x} 2x`,
       },
       scoreDescription: <span className="text-[#A84945]">위험수준</span>,
-      heading: "",
-      description: "",
+      heading,
+      description,
     };
   })();
 
   // 일-삶의 균형 데이터
   const t8Data = (() => {
-    const isGood =
-      (gender === "MALE" && t8 < 6) || (gender === "FEMALE" && t8 < 6);
+    const status: "normal" | "danger" =
+      (gender === "MALE" && t8 < 6) || (gender === "FEMALE" && t8 < 6)
+        ? "normal"
+        : "danger";
+    const heading =
+      resultSet.t8[status].headings[
+        Math.floor(Math.random() & resultSet.t1[status].headings.length)
+      ];
+    const description =
+      resultSet.t8[status].descriptions[
+        Math.floor(Math.random() & resultSet.t1[status].descriptions.length)
+      ];
 
-    if (isGood) {
+    if (status === "normal") {
       return {
         title: "직장 문화",
-        isGood,
+        status,
         image: {
           src: greenTherometer,
           srcSet: `${greenTherometer2x} 2x`,
         },
         scoreDescription: <span className="text-[#83B583]">정상범위</span>,
-        heading: "",
-        description: "",
+        heading,
+        description,
       };
     }
 
     return {
       title: "직장 문화",
-      isGood,
+      status,
       image: {
         src: darkRedTherometer,
         srcSet: `${darkRedTherometer2x} 2x`,
       },
       scoreDescription: <span className="text-[#A84945]">위험수준</span>,
-      heading: "",
-      description: "",
+      heading,
+      description,
     };
   })();
 
@@ -287,9 +369,9 @@ export const StressResultPage: FC = () => {
     t7Data,
     t8Data,
   ].sort((a, b) => {
-    if (a.isGood === b.isGood) return 0;
+    if (a.status === b.status) return 0;
 
-    if (!a.isGood) return -1;
+    if (!a.status) return -1;
 
     return 1;
   });

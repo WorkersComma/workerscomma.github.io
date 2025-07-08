@@ -9,58 +9,60 @@ import orangeTherometer from "../assets/thermometers/orange-thermometer.webp";
 import orangeTherometer2x from "../assets/thermometers/orange-thermometer@2x.webp";
 import darkRedTherometer from "../assets/thermometers/dark-red-thermometer.webp";
 import darkRedTherometer2x from "../assets/thermometers/dark-red-thermometer@2x.webp";
+import resultSet from "./result-set.json";
 
 export const AnxietyResultPage: FC = () => {
   const { score = 0 } = useSearch({ from: "/self-diagnosis/anxiety/result" });
+  const status = ((): "green" | "yellow" | "orange" | "darkRed" => {
+    if (score < 5) return "green";
+
+    if (score < 10) return "yellow";
+
+    if (score < 15) return "orange";
+
+    return "darkRed";
+  })();
 
   const therometerImages = (() => {
-    if (score < 5)
+    if (status === "green")
       return { src: greenTherometer, srcSet: `${greenTherometer2x} 2x` };
 
-    if (score < 10)
+    if (status === "yellow")
       return { src: yellowTherometer, srcSet: `${yellowTherometer2x} 2x` };
 
-    if (score < 15)
+    if (status === "orange")
       return { src: orangeTherometer, srcSet: `${orangeTherometer2x} 2x` };
 
     return { src: darkRedTherometer, srcSet: `${darkRedTherometer2x} 2x` };
   })();
 
   const scoreDescription = (() => {
-    if (score < 5) return <span className="text-[#83B583]">0~4점 정상</span>;
+    if (status === "green")
+      return <span className="text-[#83B583]">0~4점 정상</span>;
 
-    if (score < 10)
+    if (status === "yellow")
       return <span className="text-[#EDBA44]">5~9점 경미한 수준</span>;
 
-    if (score < 15)
+    if (status === "orange")
       return <span className="text-[#E89C5F]">10~14점 중간 수준</span>;
 
     return <span className="text-[#A84945]">15~21점 심한 수준</span>;
   })();
 
   const heading2 = (() => {
-    if (score < 5) return "안정감이 업무 집중력에도\n큰 힘이 됩니다!";
-
-    if (score < 10)
-      return "사소한 걱정이나 불안이\n마음속을 스치고 지나갈 수 있습니다";
-
-    if (score < 15)
-      return "불안이 두근거림이나 가슴 답답함같은\n신체 증상으로 나타날 수 있습니다";
-
-    return "최근 불안이 삶과 업무에\n큰 영향을 주고 있습니다";
+    const heading =
+      resultSet[status].headings[
+        Math.floor(Math.random() * resultSet[status].headings.length)
+      ];
+    return heading;
   })();
 
   const paragraph = (() => {
-    if (score < 5)
-      return "안정된 마음이야말로 집중력과 효율성의 원천이며,\n지금의 당신은 그 좋은 흐름 속에 있습니다.\n스스로를 아낌없이 칭찬해 주세요.";
-
-    if (score < 10)
-      return "그럴 땐 업무 중에 잠시 자리에서 일어나\n천천히 심호흡을 해보세요.\n아주 간단한 행동만으로도 마음이 훨씬 가벼워질 수 있습니다.";
-
-    if (score < 15)
-      return "잠시 조용한 공간에서 눈을 감고\n깊은 호흡을 5회 반복해보세요.\n단순하지만 매우 효과적인 방법입니다.";
-
-    return "지금은 무엇보다도 당신 자신의 마음을 가장 우선으로\n돌보아야 할 때입니다.\n몸보다 마음의 건강이 더 중요합니다.";
+    const description =
+      resultSet[status].descriptions[
+        Math.floor(Math.random() * resultSet[status].descriptions.length)
+      ];
+    return description;
   })();
 
   return (
