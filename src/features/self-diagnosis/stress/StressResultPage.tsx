@@ -402,11 +402,11 @@ export const StressResultPage: FC = () => {
               {data.scoreDescription}
             </p>
 
-            <h3 className="font-semibold text-black whitespace-pre-line text-center">
+            <h3 className="font-semibold text-black whitespace-pre-line text-center break-keep">
               {data.heading}
             </h3>
 
-            <p className="mt-2 font-semibold text-[0.875rem] whitespace-pre-line text-center">
+            <p className="mt-2 font-semibold text-[0.875rem] whitespace-pre-line text-center break-keep">
               {data.description}
             </p>
           </li>

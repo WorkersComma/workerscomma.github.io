@@ -75,11 +75,11 @@ export const AnxietyResultPage: FC = () => {
 
       <p className="font-semibold">{scoreDescription}</p>
 
-      <h2 className="mt-2 font-semibold text-[1.125rem] text-black text-center whitespace-pre-line">
+      <h2 className="mt-2 font-semibold text-[1.125rem] text-black text-center whitespace-pre-line break-keep">
         {heading2}
       </h2>
 
-      <p className="mt-1 font-semibold text-[0.875rem] text-center whitespace-pre-line">
+      <p className="mt-1 font-semibold text-[0.875rem] text-center whitespace-pre-line break-keep">
         {paragraph}
       </p>
 
