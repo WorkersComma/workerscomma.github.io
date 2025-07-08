@@ -44,14 +44,14 @@ export const HelpPage: FC = () => {
 
           <li className="p-4 flex flex-col bg-white border border-[#EEF0F3] rounded-[10px]">
             <h2 className="font-semibold text-[0.875rem] text-black">
-              고용센터 상담지원
+              고용복지 플러스센터
             </h2>
             <p className="font-medium text-[0.875rem] text-[#245768]">
               실직자 및 구직자
             </p>
             <a
               className="mt-4 flex justify-center items-center self-center w-[84px] h-[28px] rounded-[40px] bg-[#ACC9C2] hover:bg-[#65A595] active:bg-[#65A595] text-white font-bold text-[0.875rem] shadow-[0px_4px_4px_rgb(0_0_0/0.25)]"
-              href="https://kosha.or.kr/healthcenter/index.do"
+              href="https://www.workplus.go.kr/index.do"
               target="_blank"
             >
               바로가기
