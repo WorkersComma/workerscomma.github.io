@@ -36,7 +36,7 @@ export const WritePage: FC = () => {
 
   if (isCorrect) {
     return (
-      <div className="p-4 flex flex-col items-center min-h-[inherit]">
+      <div className="p-4 flex flex-col items-center min-h-[inherit] bg-[#FDFEEA]">
         <Heading1>{headingPrefix[type]} 마음 필사</Heading1>
 
         <div className="max-w-xl flex flex-col justify-center items-center gap-8 flex-1">

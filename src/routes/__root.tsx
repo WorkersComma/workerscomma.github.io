@@ -7,9 +7,7 @@ export const Route = createRootRoute({
     const location = useLocation();
 
     const bgColor =
-      location.pathname.includes("result") ||
-      location.pathname.includes("help") ||
-      location.pathname.includes("write")
+      location.pathname.includes("result") || location.pathname.includes("help")
         ? "bg-[#FDFEEA]"
         : "bg-[#EDF4FF]";
 
