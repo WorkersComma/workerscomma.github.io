@@ -2,6 +2,8 @@ import { useState, type FC } from "react";
 import { Heading1 } from "../../shared/components/Heading1";
 import mainLogo from "./assets/main-logo.webp";
 import mainLogo2x from "./assets/main-logo@2x.webp";
+import pencil from "./assets/pencil.webp";
+import pencil2x from "./assets/pencil@2x.webp";
 
 const SENTENCE = "작은 성취가 큰 변화를 이끈다.";
 
@@ -15,11 +17,11 @@ export const WritePage: FC = () => {
 
   if (isCorrect) {
     return (
-      <div className="p-4 flex flex-col items-center">
+      <div className="p-4 flex flex-col items-center min-h-[inherit]">
         <Heading1>마음 필사</Heading1>
 
-        <div className="max-w-xl mt-9 flex flex-col items-center gap-8">
-          <p className="font-medium text-[#65A595] text-[1.25rem] text-center">
+        <div className="max-w-xl flex flex-col justify-center items-center gap-8 flex-1">
+          <p className="max-w-xs font-medium text-[#65A595] text-[1.25rem] text-center">
             {SENTENCE}
           </p>
 
@@ -46,7 +48,7 @@ export const WritePage: FC = () => {
     <div className="p-4 flex flex-col items-center">
       <Heading1>마음 필사</Heading1>
 
-      <div className="max-w-xl mt-10 px-5 py-10 w-full flex flex-col items-center bg-white border border-[#EEF0F3] rounded-[10px]">
+      <div className="relative max-w-xl mt-10 px-5 py-10 w-full flex flex-col items-center bg-white border border-[#EEF0F3] rounded-[10px]">
         <p className="font-medium text-black text-[1.25rem]">{SENTENCE}</p>
 
         <div className="relative mt-4">
@@ -64,6 +66,13 @@ export const WritePage: FC = () => {
             onChange={(e) => setValue(e.target.value ?? "")}
           />
         </div>
+
+        <img
+          className="absolute -bottom-[90px] -right-[20px]"
+          src={pencil}
+          srcSet={`${pencil2x} 2x`}
+          alt="연필"
+        />
       </div>
 
       <p className="mt-9 text-center font-semibold">
