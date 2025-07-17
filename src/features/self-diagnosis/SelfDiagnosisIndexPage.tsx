@@ -29,7 +29,7 @@ export const SelfDiagnosisIndexPage: FC = () => {
         <br />
         <br />
 
-        <span className="text-[#65A595]">
+        <span className="text-[#558B7D]">
           몇 가지 질문에 답하면서 지금의 마음 상태를 알아보고,
           <br />
           나에게 필요한 쉼표(,)를 찾아보세요.
@@ -51,7 +51,7 @@ export const SelfDiagnosisIndexPage: FC = () => {
 
           <div className="flex justify-center w-[130px]">
             <Link
-              className="w-[103px] h-[40px] flex justify-center items-center bg-[#65A595] rounded-[40px] font-bold text-[1.125rem] text-white"
+              className="w-[103px] h-[40px] flex justify-center items-center bg-[#558B7D] rounded-[40px] font-bold text-[1.125rem] text-white"
               to="/self-diagnosis/depression"
             >
               우울감
@@ -71,7 +71,7 @@ export const SelfDiagnosisIndexPage: FC = () => {
 
           <div className="flex justify-center w-[130px]">
             <Link
-              className="w-[103px] h-[40px] flex justify-center items-center bg-[#65A595] rounded-[40px] font-bold text-[1.125rem] text-white"
+              className="w-[103px] h-[40px] flex justify-center items-center bg-[#558B7D] rounded-[40px] font-bold text-[1.125rem] text-white"
               to="/self-diagnosis/anxiety"
             >
               불안감
@@ -91,7 +91,7 @@ export const SelfDiagnosisIndexPage: FC = () => {
 
           <div className="flex justify-center w-[130px]">
             <Link
-              className="w-[130px] h-[40px] flex justify-center items-center bg-[#65A595] rounded-[40px] font-bold text-[1.125rem] text-white"
+              className="w-[130px] h-[40px] flex justify-center items-center bg-[#558B7D] rounded-[40px] font-bold text-[1.125rem] text-white"
               to="/self-diagnosis/stress"
             >
               직무 스트레스

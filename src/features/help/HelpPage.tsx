@@ -18,7 +18,7 @@ export const HelpPage: FC = () => {
               50인 미만 사업장 근로자 및 개인 사업자
             </p>
             <a
-              className="mt-4 flex justify-center items-center self-center w-[84px] h-[28px] rounded-[40px] bg-[#ACC9C2] hover:bg-[#65A595] active:bg-[#65A595] text-white font-bold text-[0.875rem] shadow-[0px_4px_4px_rgb(0_0_0/0.25)]"
+              className="mt-4 flex justify-center items-center self-center w-[84px] h-[28px] rounded-[40px] bg-[#65A595] hover:bg-[#558B7D] active:bg-[#558B7D] text-white font-bold text-[0.875rem] shadow-[0px_4px_4px_rgb(0_0_0/0.25)]"
               href="https://kosha.or.kr/healthcenter/index.do"
               target="_blank"
             >
@@ -34,7 +34,7 @@ export const HelpPage: FC = () => {
               300인 미만 사업장 근로자
             </p>
             <a
-              className="mt-4 flex justify-center items-center self-center w-[84px] h-[28px] rounded-[40px] bg-[#ACC9C2] hover:bg-[#65A595] active:bg-[#65A595] text-white font-bold text-[0.875rem] shadow-[0px_4px_4px_rgb(0_0_0/0.25)]"
+              className="mt-4 flex justify-center items-center self-center w-[84px] h-[28px] rounded-[40px] bg-[#65A595] hover:bg-[#558B7D] active:bg-[#558B7D] text-white font-bold text-[0.875rem] shadow-[0px_4px_4px_rgb(0_0_0/0.25)]"
               href="https://welfare.comwel.or.kr/default/index.do"
               target="_blank"
             >
@@ -50,7 +50,7 @@ export const HelpPage: FC = () => {
               실직자 및 구직자
             </p>
             <a
-              className="mt-4 flex justify-center items-center self-center w-[84px] h-[28px] rounded-[40px] bg-[#ACC9C2] hover:bg-[#65A595] active:bg-[#65A595] text-white font-bold text-[0.875rem] shadow-[0px_4px_4px_rgb(0_0_0/0.25)]"
+              className="mt-4 flex justify-center items-center self-center w-[84px] h-[28px] rounded-[40px] bg-[#65A595] hover:bg-[#558B7D] active:bg-[#558B7D] text-white font-bold text-[0.875rem] shadow-[0px_4px_4px_rgb(0_0_0/0.25)]"
               href="https://www.workplus.go.kr/index.do"
               target="_blank"
             >
