@@ -168,6 +168,12 @@ export const StressTestPage: FC = () => {
             </div>
           ))}
 
+          <p className="font-bold text-[0.625rem] text-center text-[#A39494]">
+            평가도구(출처) : 한국인 직무스트레스 측정도구
+            <br />
+            (KOSSⓇ19 KOSHA GUIDE H 67 2022' 직무스트레스 요인 측정지)
+          </p>
+
           <button
             type="submit"
             className="cursor-pointer w-[188px] h-[50px] rounded-[40px] bg-[#65A595] hover:bg-[#558B7D] active:bg-[#558B7D] text-white font-bold text-[1.25rem] shadow-[0px_4px_4px_rgb(0_0_0/0.25)]"
