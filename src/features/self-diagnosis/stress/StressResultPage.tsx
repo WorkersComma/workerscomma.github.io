@@ -423,6 +423,9 @@ export const StressResultPage: FC = () => {
         <Link
           className="w-[161px] h-[35px] flex justify-center items-center font-bold text-[1.125rem] text-white bg-[#65A595] hover:bg-[#558B7D] active:bg-[#558B7D] rounded-[40px] shadow-[0px_4px_4px_rgb(0_0_0/0.25)]"
           to="/write"
+          search={{
+            type: "stress",
+          }}
         >
           마음 필사
         </Link>

@@ -1,29 +1,48 @@
-import { useState, type FC } from "react";
+import { useMemo, useState, type FC } from "react";
+import { useSearch } from "@tanstack/react-router";
 import { Heading1 } from "../../shared/components/Heading1";
 import mainLogo from "./assets/main-logo.webp";
 import mainLogo2x from "./assets/main-logo@2x.webp";
 import pencil from "./assets/pencil.webp";
 import pencil2x from "./assets/pencil@2x.webp";
+import quoteSet from "./quote-set.json";
 
-const SENTENCE = "작은 성취가 큰 변화를 이끈다.";
+const headingPrefix: {
+  [key: string]: string;
+  depression: string;
+  anxiety: string;
+  stress: string;
+} = {
+  depression: "우울감",
+  anxiety: "불안감",
+  stress: "직무 스트레스",
+};
 
 export const WritePage: FC = () => {
+  const { type } = useSearch({ from: "/write" });
   const [value, setValue] = useState("");
   const [isCorrect, setIsCorrect] = useState(false);
+  const selectedSentence = useMemo(() => {
+    const quotes: { quote: string; cite?: string }[] = quoteSet[type];
+    return quotes[Math.floor(Math.random() * quotes.length)];
+  }, [type]);
 
-  if (!isCorrect && value.replace(/[\s\r\n\t\v\f]+/g, " ") === SENTENCE) {
+  if (
+    !isCorrect &&
+    value.replace(/[\s\r\n\t\v\f]+/g, " ") === selectedSentence.quote
+  ) {
     setIsCorrect(true);
   }
 
   if (isCorrect) {
     return (
       <div className="p-4 flex flex-col items-center min-h-[inherit]">
-        <Heading1>마음 필사</Heading1>
+        <Heading1>{headingPrefix[type]} 마음 필사</Heading1>
 
         <div className="max-w-xl flex flex-col justify-center items-center gap-8 flex-1">
-          <p className="max-w-xs font-medium text-[#65A595] text-[1.25rem] text-center">
-            {SENTENCE}
-          </p>
+          <q className="max-w-xs font-medium text-[#65A595] text-[1.25rem] text-center [quotes:none]">
+            {selectedSentence.quote}
+          </q>
 
           <img
             className="w-[156px] h-[151px]"
@@ -46,17 +65,24 @@ export const WritePage: FC = () => {
 
   return (
     <div className="p-4 flex flex-col items-center">
-      <Heading1>마음 필사</Heading1>
+      <Heading1>{headingPrefix[type]} 마음 필사</Heading1>
 
       <div className="relative max-w-xl mt-10 px-5 py-10 w-full flex flex-col items-center bg-white border border-[#EEF0F3] rounded-[10px]">
-        <p className="font-medium text-black text-[1.25rem]">{SENTENCE}</p>
+        <q className="font-medium text-black text-[1.25rem] [quotes:none]">
+          {selectedSentence.quote}
+        </q>
+        {selectedSentence.cite && (
+          <span className="font-medium text-[0.625rem] text-[#0E0606]">
+            - {selectedSentence.cite}
+          </span>
+        )}
 
         <div className="relative mt-4">
           <label
             htmlFor="write"
             className="font-medium text-[#BFBFBFff] text-[1.25rem]"
           >
-            {SENTENCE}
+            {selectedSentence.quote}
           </label>
 
           <textarea
