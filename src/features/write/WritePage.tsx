@@ -5,7 +5,7 @@ import mainLogo from "./assets/main-logo.webp";
 import mainLogo2x from "./assets/main-logo@2x.webp";
 import pencil from "./assets/pencil.webp";
 import pencil2x from "./assets/pencil@2x.webp";
-import quoteSet from "./quote-set.json";
+import quoteSetJson from "./quote-set.json";
 
 const headingPrefix: {
   [key: string]: string;
@@ -23,7 +23,7 @@ export const WritePage: FC = () => {
   const [value, setValue] = useState("");
   const [isCorrect, setIsCorrect] = useState(false);
   const selectedSentence = useMemo(() => {
-    const quotes: { quote: string; cite?: string }[] = quoteSet[type];
+    const quotes: { quote: string; cite?: string }[] = quoteSetJson[type];
     return quotes[Math.floor(Math.random() * quotes.length)];
   }, [type]);
 
