@@ -3,11 +3,33 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { useNavigate } from "@tanstack/react-router";
 import { Heading1 } from "../../../shared/components/Heading1";
 import testSetJson from "./test-set.json";
-import type { TestSet } from "./types";
+import type { Test, TestSet } from "./types";
 import magnifier from "../assets/magnifier.webp";
 import magnifier2x from "../assets/magnifier@2x.webp";
 
-const testSet = testSetJson as TestSet;
+const testSetGroup = (testSetJson as TestSet).reduce((acc, cur) => {
+  if (!acc.get(cur.type)) {
+    acc.set(cur.type, []);
+  }
+  const currentTestSet = acc.get(cur.type)!;
+  currentTestSet?.push(cur);
+  acc.set(cur.type, currentTestSet);
+
+  return acc;
+}, new Map<TestSet[number]["type"], TestSet>());
+
+const testSetTypeTextMap: { [Key in TestSet[number]["type"]]: string } = {
+  성별: "",
+  물리환경: "물리적 환경",
+  직무요구: "직무 요구",
+  직무자율: "직무 자율",
+  관계갈등: "관계 갈등",
+  직무불안성: "직무 불안정",
+  조직체계: "조직체계",
+  보상부적절: "보상 부적절",
+  "일-삶의 균형": "직장 문화",
+};
+const testSet = [...testSetGroup.entries()];
 
 type Inputs = { [key: string]: string };
 
@@ -128,43 +150,54 @@ export const StressTestPage: FC = () => {
           className="w-full flex flex-col items-center gap-2 bg-white rounded-[10px] border border-[#EEF0F3] py-4 px-5"
           onSubmit={handleSubmit(onSubmit)}
         >
-          {testSet.map((test, index) => (
+          {testSet.map(([type, subTestSet]) => (
             <div
-              key={test.question}
-              className="w-full border-b last-of-type:border-none border-b-[#E5E5E5] p-1 pb-2"
+              key={type}
+              className="w-full border-b last-of-type:border-none border-b-[#E5E5E5]"
             >
-              <fieldset className="@container w-full">
-                <legend
-                  className={`font-medium text-[0.875rem] whitespace-pre-line${
-                    errors[test.id] ? " text-red-500" : ""
-                  }`}
-                >
-                  {index + 1}. {test.question}
-                </legend>
-
-                <div className="mt-2 flex flex-wrap gap-1 md:gap-4 justify-start">
-                  {test.options.map((option) => (
-                    <div
-                      key={`${test.id}-${option.value}`}
-                      className="flex items-center gap-0.5"
+              {testSetTypeTextMap[type] && (
+                <span className="text-[#65A595] text-[0.625rem] font-medium">
+                  [{testSetTypeTextMap[type]}]
+                </span>
+              )}
+              {subTestSet.map((test: Test, index: number) => (
+                <div key={test.question} className="w-full p-1 pb-2">
+                  <fieldset className="@container w-full">
+                    <legend
+                      className={`font-medium text-[0.875rem] whitespace-pre-line${
+                        errors[test.id] ? " text-red-500" : ""
+                      }`}
                     >
-                      <input
-                        className="cursor-pointer"
-                        type="radio"
-                        id={`${test.id}-${option.value}`}
-                        defaultValue={option.value}
-                        {...register(test.id.toString(), { required: true })}
-                      />
-                      <label
-                        htmlFor={`${test.id}-${option.value}`}
-                        className="cursor-pointer text-[0.75rem] font-medium text-[#636363]"
-                      >
-                        {option.label}
-                      </label>
+                      {index + 1}. {test.question}
+                    </legend>
+
+                    <div className="mt-2 flex flex-wrap gap-1 md:gap-4 justify-start">
+                      {test.options.map((option) => (
+                        <div
+                          key={`${test.id}-${option.value}`}
+                          className="flex items-center gap-0.5"
+                        >
+                          <input
+                            className="cursor-pointer"
+                            type="radio"
+                            id={`${test.id}-${option.value}`}
+                            defaultValue={option.value}
+                            {...register(test.id.toString(), {
+                              required: true,
+                            })}
+                          />
+                          <label
+                            htmlFor={`${test.id}-${option.value}`}
+                            className="cursor-pointer text-[0.75rem] font-medium text-[#636363]"
+                          >
+                            {option.label}
+                          </label>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </fieldset>
                 </div>
-              </fieldset>
+              ))}
             </div>
           ))}
 
