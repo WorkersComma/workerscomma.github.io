@@ -34,7 +34,7 @@ export const MainPage: FC = () => {
           <span>자가진단</span>
         </Link>
 
-        <div className="flex-1">
+        <Link className="flex-1" to="/heart-drawer">
           <svg
             width="70"
             height="70"
@@ -47,8 +47,8 @@ export const MainPage: FC = () => {
               fill="#65A595"
             />
           </svg>
-          <span>감정 대나무숲</span>
-        </div>
+          <span>마음 서랍</span>
+        </Link>
 
         <Link
           className="flex-1"

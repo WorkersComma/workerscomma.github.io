@@ -11,11 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WriteRouteImport } from './routes/write'
 import { Route as HelpRouteImport } from './routes/help'
+import { Route as HeartDrawerRouteRouteImport } from './routes/heart-drawer/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SelfDiagnosisIndexRouteImport } from './routes/self-diagnosis/index'
+import { Route as HeartDrawerIndexRouteImport } from './routes/heart-drawer/index'
 import { Route as SelfDiagnosisStressIndexRouteImport } from './routes/self-diagnosis/stress/index'
 import { Route as SelfDiagnosisDepressionIndexRouteImport } from './routes/self-diagnosis/depression/index'
 import { Route as SelfDiagnosisAnxietyIndexRouteImport } from './routes/self-diagnosis/anxiety/index'
+import { Route as HeartDrawerBookmarkIndexRouteImport } from './routes/heart-drawer/bookmark/index'
 import { Route as SelfDiagnosisStressResultRouteImport } from './routes/self-diagnosis/stress/result'
 import { Route as SelfDiagnosisDepressionResultRouteImport } from './routes/self-diagnosis/depression/result'
 import { Route as SelfDiagnosisAnxietyResultRouteImport } from './routes/self-diagnosis/anxiety/result'
@@ -30,6 +33,11 @@ const HelpRoute = HelpRouteImport.update({
   path: '/help',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HeartDrawerRouteRoute = HeartDrawerRouteRouteImport.update({
+  id: '/heart-drawer',
+  path: '/heart-drawer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -39,6 +47,11 @@ const SelfDiagnosisIndexRoute = SelfDiagnosisIndexRouteImport.update({
   id: '/self-diagnosis/',
   path: '/self-diagnosis/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const HeartDrawerIndexRoute = HeartDrawerIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => HeartDrawerRouteRoute,
 } as any)
 const SelfDiagnosisStressIndexRoute =
   SelfDiagnosisStressIndexRouteImport.update({
@@ -57,6 +70,12 @@ const SelfDiagnosisAnxietyIndexRoute =
     id: '/self-diagnosis/anxiety/',
     path: '/self-diagnosis/anxiety/',
     getParentRoute: () => rootRouteImport,
+  } as any)
+const HeartDrawerBookmarkIndexRoute =
+  HeartDrawerBookmarkIndexRouteImport.update({
+    id: '/bookmark/',
+    path: '/bookmark/',
+    getParentRoute: () => HeartDrawerRouteRoute,
   } as any)
 const SelfDiagnosisStressResultRoute =
   SelfDiagnosisStressResultRouteImport.update({
@@ -79,12 +98,15 @@ const SelfDiagnosisAnxietyResultRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/heart-drawer': typeof HeartDrawerRouteRouteWithChildren
   '/help': typeof HelpRoute
   '/write': typeof WriteRoute
+  '/heart-drawer/': typeof HeartDrawerIndexRoute
   '/self-diagnosis': typeof SelfDiagnosisIndexRoute
   '/self-diagnosis/anxiety/result': typeof SelfDiagnosisAnxietyResultRoute
   '/self-diagnosis/depression/result': typeof SelfDiagnosisDepressionResultRoute
   '/self-diagnosis/stress/result': typeof SelfDiagnosisStressResultRoute
+  '/heart-drawer/bookmark': typeof HeartDrawerBookmarkIndexRoute
   '/self-diagnosis/anxiety': typeof SelfDiagnosisAnxietyIndexRoute
   '/self-diagnosis/depression': typeof SelfDiagnosisDepressionIndexRoute
   '/self-diagnosis/stress': typeof SelfDiagnosisStressIndexRoute
@@ -93,10 +115,12 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/help': typeof HelpRoute
   '/write': typeof WriteRoute
+  '/heart-drawer': typeof HeartDrawerIndexRoute
   '/self-diagnosis': typeof SelfDiagnosisIndexRoute
   '/self-diagnosis/anxiety/result': typeof SelfDiagnosisAnxietyResultRoute
   '/self-diagnosis/depression/result': typeof SelfDiagnosisDepressionResultRoute
   '/self-diagnosis/stress/result': typeof SelfDiagnosisStressResultRoute
+  '/heart-drawer/bookmark': typeof HeartDrawerBookmarkIndexRoute
   '/self-diagnosis/anxiety': typeof SelfDiagnosisAnxietyIndexRoute
   '/self-diagnosis/depression': typeof SelfDiagnosisDepressionIndexRoute
   '/self-diagnosis/stress': typeof SelfDiagnosisStressIndexRoute
@@ -104,12 +128,15 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/heart-drawer': typeof HeartDrawerRouteRouteWithChildren
   '/help': typeof HelpRoute
   '/write': typeof WriteRoute
+  '/heart-drawer/': typeof HeartDrawerIndexRoute
   '/self-diagnosis/': typeof SelfDiagnosisIndexRoute
   '/self-diagnosis/anxiety/result': typeof SelfDiagnosisAnxietyResultRoute
   '/self-diagnosis/depression/result': typeof SelfDiagnosisDepressionResultRoute
   '/self-diagnosis/stress/result': typeof SelfDiagnosisStressResultRoute
+  '/heart-drawer/bookmark/': typeof HeartDrawerBookmarkIndexRoute
   '/self-diagnosis/anxiety/': typeof SelfDiagnosisAnxietyIndexRoute
   '/self-diagnosis/depression/': typeof SelfDiagnosisDepressionIndexRoute
   '/self-diagnosis/stress/': typeof SelfDiagnosisStressIndexRoute
@@ -118,12 +145,15 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/heart-drawer'
     | '/help'
     | '/write'
+    | '/heart-drawer/'
     | '/self-diagnosis'
     | '/self-diagnosis/anxiety/result'
     | '/self-diagnosis/depression/result'
     | '/self-diagnosis/stress/result'
+    | '/heart-drawer/bookmark'
     | '/self-diagnosis/anxiety'
     | '/self-diagnosis/depression'
     | '/self-diagnosis/stress'
@@ -132,22 +162,27 @@ export interface FileRouteTypes {
     | '/'
     | '/help'
     | '/write'
+    | '/heart-drawer'
     | '/self-diagnosis'
     | '/self-diagnosis/anxiety/result'
     | '/self-diagnosis/depression/result'
     | '/self-diagnosis/stress/result'
+    | '/heart-drawer/bookmark'
     | '/self-diagnosis/anxiety'
     | '/self-diagnosis/depression'
     | '/self-diagnosis/stress'
   id:
     | '__root__'
     | '/'
+    | '/heart-drawer'
     | '/help'
     | '/write'
+    | '/heart-drawer/'
     | '/self-diagnosis/'
     | '/self-diagnosis/anxiety/result'
     | '/self-diagnosis/depression/result'
     | '/self-diagnosis/stress/result'
+    | '/heart-drawer/bookmark/'
     | '/self-diagnosis/anxiety/'
     | '/self-diagnosis/depression/'
     | '/self-diagnosis/stress/'
@@ -155,6 +190,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  HeartDrawerRouteRoute: typeof HeartDrawerRouteRouteWithChildren
   HelpRoute: typeof HelpRoute
   WriteRoute: typeof WriteRoute
   SelfDiagnosisIndexRoute: typeof SelfDiagnosisIndexRoute
@@ -182,6 +218,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HelpRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/heart-drawer': {
+      id: '/heart-drawer'
+      path: '/heart-drawer'
+      fullPath: '/heart-drawer'
+      preLoaderRoute: typeof HeartDrawerRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -195,6 +238,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/self-diagnosis'
       preLoaderRoute: typeof SelfDiagnosisIndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/heart-drawer/': {
+      id: '/heart-drawer/'
+      path: '/'
+      fullPath: '/heart-drawer/'
+      preLoaderRoute: typeof HeartDrawerIndexRouteImport
+      parentRoute: typeof HeartDrawerRouteRoute
     }
     '/self-diagnosis/stress/': {
       id: '/self-diagnosis/stress/'
@@ -216,6 +266,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/self-diagnosis/anxiety'
       preLoaderRoute: typeof SelfDiagnosisAnxietyIndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/heart-drawer/bookmark/': {
+      id: '/heart-drawer/bookmark/'
+      path: '/bookmark'
+      fullPath: '/heart-drawer/bookmark'
+      preLoaderRoute: typeof HeartDrawerBookmarkIndexRouteImport
+      parentRoute: typeof HeartDrawerRouteRoute
     }
     '/self-diagnosis/stress/result': {
       id: '/self-diagnosis/stress/result'
@@ -241,8 +298,22 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface HeartDrawerRouteRouteChildren {
+  HeartDrawerIndexRoute: typeof HeartDrawerIndexRoute
+  HeartDrawerBookmarkIndexRoute: typeof HeartDrawerBookmarkIndexRoute
+}
+
+const HeartDrawerRouteRouteChildren: HeartDrawerRouteRouteChildren = {
+  HeartDrawerIndexRoute: HeartDrawerIndexRoute,
+  HeartDrawerBookmarkIndexRoute: HeartDrawerBookmarkIndexRoute,
+}
+
+const HeartDrawerRouteRouteWithChildren =
+  HeartDrawerRouteRoute._addFileChildren(HeartDrawerRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  HeartDrawerRouteRoute: HeartDrawerRouteRouteWithChildren,
   HelpRoute: HelpRoute,
   WriteRoute: WriteRoute,
   SelfDiagnosisIndexRoute: SelfDiagnosisIndexRoute,

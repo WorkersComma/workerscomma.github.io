@@ -9,7 +9,7 @@ export const Route = createRootRoute({
     const bgColor =
       location.pathname.includes("result") ||
       location.pathname.includes("help") ||
-      location.pathname.includes("heart-drawer/calendar")
+      location.pathname.includes("heart-drawer/bookmark")
         ? "bg-[#FDFEEA]"
         : "bg-[#EDF4FF]";
 
