@@ -6,9 +6,5 @@ export const Route = createFileRoute("/heart-drawer/bookmark/")({
 });
 
 function RouteComponent() {
-  return (
-    <div>
-      <HeartDrawerBookMarkPage />
-    </div>
-  );
+  return <HeartDrawerBookMarkPage />;
 }
