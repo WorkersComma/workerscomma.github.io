@@ -100,7 +100,7 @@ export const HeartDrawerBookMarkPage: FC = () => {
         콩쉼이가 <span className="text-[1.125rem]">차곡차곡</span> 모았어요!
       </p>
 
-      <div className="min-w-[298px] max-w-5xl w-full mx-auto rounded-[10px] bg-white border border-[#EEF0F3] p-6 flex flex-col gap-2">
+      <div className="min-w-[298px] max-w-5xl w-full mx-auto rounded-[10px] bg-white border border-[#EEF0F3] p-6 pb-2 flex flex-col gap-2">
         <fieldset className="flex gap-4 justify-center">
           <div className="flex items-center gap-1">
             <input
@@ -114,7 +114,12 @@ export const HeartDrawerBookMarkPage: FC = () => {
               }}
             />
 
-            <label htmlFor="year">년</label>
+            <label
+              htmlFor="year"
+              className="font-medium font-sans text-[0.8125rem]"
+            >
+              년
+            </label>
           </div>
 
           <div className="flex items-center gap-1">
@@ -128,34 +133,41 @@ export const HeartDrawerBookMarkPage: FC = () => {
                 setMonth(parseInt(e.target.value));
               }}
             />
-            <label htmlFor="month">월</label>
+            <label
+              htmlFor="month"
+              className="font-medium font-sans text-[0.8125rem]"
+            >
+              월
+            </label>
           </div>
         </fieldset>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col">
           <ol className="flex font-sans font-medium text-[0.8125rem] text-center *:flex-1">
-            <li className="text-[#FF0A00]">일</li>
-            <li>월</li>
-            <li>화</li>
-            <li>수</li>
-            <li>목</li>
-            <li>금</li>
-            <li className="text-[#2E7CF6]">토</li>
+            <li className="text-[#FF0A00] pb-1 border-r-[0.5px] border-[#DDDDDD]">
+              일
+            </li>
+            <li className="pb-1 border-r-[0.5px] border-[#DDDDDD]">월</li>
+            <li className="pb-1 border-r-[0.5px] border-[#DDDDDD]">화</li>
+            <li className="pb-1 border-r-[0.5px] border-[#DDDDDD]">수</li>
+            <li className="pb-1 border-r-[0.5px] border-[#DDDDDD]">목</li>
+            <li className="pb-1 border-r-[0.5px] border-[#DDDDDD]">금</li>
+            <li className="text-[#2E7CF6] pb-1">토</li>
           </ol>
 
           <ol className="flex flex-col h-full">
             {calendar.map((week) => (
-              <li className="h-[50px]">
+              <li className="h-[50px] border-t-[0.5px] border-[#DDDDDD]">
                 <ol className="flex size-full">
                   {week.map((heartDrawer) => (
-                    <li className="flex-1 h-full">
+                    <li className="flex-1 h-full not-last:border-r-[0.5px] border-[#DDDDDD]">
                       {heartDrawer && (
                         <Link
-                          className="h-full flex justify-center"
+                          className="h-full flex justify-center hover:bg-[rgb(152_234_83/0.22)] active:bg-[rgb(152_234_83/0.22)]"
                           to="/heart-drawer"
                           search={{ date: heartDrawer.date }}
                         >
                           <img
-                            className="h-full"
+                            className="h-full object-contain"
                             src={
                               heartDrawer.emotion === "DEPRESSION"
                                 ? depression1x
