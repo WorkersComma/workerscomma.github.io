@@ -2,6 +2,12 @@ import { useRef, useState, type FC, type FormEventHandler } from "react";
 import { useHeartDrawers } from "./hooks/useHeartDrawer";
 import { useSearch } from "@tanstack/react-router";
 import { twMerge } from "tailwind-merge";
+import pleasure1x from "./assets/pleasure.webp";
+import pleasure2x from "./assets/pleasure@2x.webp";
+import sympathy1x from "./assets/sympathy.webp";
+import sympathy2x from "./assets/sympathy@2x.webp";
+import shame1x from "./assets/shame.webp";
+import shame2x from "./assets/shame@2x.webp";
 import anger1x from "./assets/anger.webp";
 import anger2x from "./assets/anger@2x.webp";
 import depression1x from "./assets/depression.webp";
@@ -120,8 +126,8 @@ export const HeartDrawerPage: FC = () => {
 
   return (
     <div className="w-full flex-1 flex flex-col gap-4">
-      <p className="text-center font-sans font-semibold text-[0.875rem] text-[#318470]">
-        <span className="text-[1.125rem]">근로자</span>님,
+      <p className="text-center font-sans font-semibold text-[0.8125rem] text-[#318470]">
+        <span className="text-[1rem]">근로자</span>님,
         <br />
         오늘 근무는 어떠셨나요?
         <br />
@@ -135,149 +141,263 @@ export const HeartDrawerPage: FC = () => {
           <legend className="size-0 overflow-hidden">감정 선택</legend>
 
           <div className="flex flex-col gap-[12px]">
-            <div className="w-[298px] h-[84px] flex items-center bg-white rounded-[10px] border border-[#EEF0F3]">
-              <div className="relative flex-1 h-full">
-                <input
-                  className={twMerge(
-                    "w-full h-full appearance-none bg-transparent rounded-[10px] cursor-pointer",
-                    emotion === "DEPRESSION" && "bg-[rgba(152,234,83,0.22)]"
-                  )}
-                  type="radio"
-                  name="emotion"
-                  id="depression"
-                  value="DEPRESSION"
-                  checked={emotion === "DEPRESSION"}
-                  onChange={(e) =>
-                    e.target.checked &&
-                    setEmotion(e.target.value as Emotion) &&
-                    setIsSaved(false) &&
-                    setIsDeleted(false)
-                  }
-                />
-                <img
-                  className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0"
-                  src={depression1x}
-                  srcSet={`${depression2x} 2x`}
-                  alt="콩쉼이 우울"
-                />
+            <div className="flex flex-col">
+              <div className="w-[298px] h-[60px] flex items-center bg-white rounded-[10px] border border-[#EEF0F3]">
+                <div className="relative flex-1 h-full">
+                  <input
+                    className={twMerge(
+                      "w-full h-full appearance-none bg-transparent rounded-[10px] cursor-pointer",
+                      emotion === "PLEASURE" && "bg-[rgba(152,234,83,0.22)]"
+                    )}
+                    type="radio"
+                    name="emotion"
+                    id="pleasure"
+                    value="PLEASURE"
+                    checked={emotion === "PLEASURE"}
+                    onChange={(e) =>
+                      e.target.checked &&
+                      setEmotion(e.target.value as Emotion) &&
+                      setIsSaved(false) &&
+                      setIsDeleted(false)
+                    }
+                  />
+                  <img
+                    className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0 object-contain"
+                    src={pleasure1x}
+                    srcSet={`${pleasure2x} 2x`}
+                    alt="콩쉼이 기쁨"
+                  />
+                </div>
+
+                <div className="relative flex-1 h-full">
+                  <input
+                    className={twMerge(
+                      "w-full h-full appearance-none bg-transparent rounded-[10px] cursor-pointer",
+                      emotion === "PROUD" && "bg-[rgba(152,234,83,0.22)]"
+                    )}
+                    type="radio"
+                    name="emotion"
+                    id="proud"
+                    value="PROUD"
+                    checked={emotion === "PROUD"}
+                    onChange={(e) =>
+                      e.target.checked &&
+                      setEmotion(e.target.value as Emotion) &&
+                      setIsSaved(false) &&
+                      setIsDeleted(false)
+                    }
+                  />
+                  <img
+                    className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0 object-contain"
+                    src={proud1x}
+                    srcSet={`${proud2x} 2x`}
+                    alt="콩쉼이 긍지"
+                  />
+                </div>
+
+                <div className="relative flex-1 h-full">
+                  <input
+                    className={twMerge(
+                      "w-full h-full appearance-none bg-transparent rounded-[10px] cursor-pointer",
+                      emotion === "ANGER" && "bg-[rgba(152,234,83,0.22)]"
+                    )}
+                    type="radio"
+                    name="emotion"
+                    id="anger"
+                    value="ANGER"
+                    checked={emotion === "ANGER"}
+                    onChange={(e) =>
+                      e.target.checked &&
+                      setEmotion(e.target.value as Emotion) &&
+                      setIsSaved(false) &&
+                      setIsDeleted(false)
+                    }
+                  />
+                  <img
+                    className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0 object-contain"
+                    src={anger1x}
+                    srcSet={`${anger2x} 2x`}
+                    alt="콩쉼이 분노"
+                  />
+                </div>
+
+                <div className="relative flex-1 h-full">
+                  <input
+                    className={twMerge(
+                      "w-full h-full appearance-none bg-transparent rounded-[10px] cursor-pointer",
+                      emotion === "SYMPATHY" && "bg-[rgba(152,234,83,0.22)]"
+                    )}
+                    type="radio"
+                    name="emotion"
+                    id="sympathy"
+                    value="SYMPATHY"
+                    checked={emotion === "SYMPATHY"}
+                    onChange={(e) =>
+                      e.target.checked &&
+                      setEmotion(e.target.value as Emotion) &&
+                      setIsSaved(false) &&
+                      setIsDeleted(false)
+                    }
+                  />
+                  <img
+                    className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0 object-contain"
+                    src={sympathy1x}
+                    srcSet={`${sympathy2x} 2x`}
+                    alt="콩쉼이 연민"
+                  />
+                </div>
               </div>
 
-              <div className="relative flex-1 h-full">
-                <input
+              <div className="w-[298px] flex items-center border border-transparent">
+                <label
                   className={twMerge(
-                    "w-full h-full appearance-none bg-transparent rounded-[10px] cursor-pointer",
-                    emotion === "PROUD" && "bg-[rgba(152,234,83,0.22)]"
+                    "flex-1 text-center text-[0.75rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
+                    emotion === "PLEASURE" && "text-[#E89C5F]"
                   )}
-                  type="radio"
-                  name="emotion"
-                  id="proud"
-                  value="PROUD"
-                  checked={emotion === "PROUD"}
-                  onChange={(e) =>
-                    e.target.checked &&
-                    setEmotion(e.target.value as Emotion) &&
-                    setIsSaved(false) &&
-                    setIsDeleted(false)
-                  }
-                />
-                <img
-                  className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0"
-                  src={proud1x}
-                  srcSet={`${proud2x} 2x`}
-                  alt="콩쉼이 뿌듯"
-                />
-              </div>
-
-              <div className="relative flex-1 h-full">
-                <input
+                  htmlFor="pleasure"
+                >
+                  기쁨
+                </label>
+                <label
                   className={twMerge(
-                    "w-full h-full appearance-none bg-transparent rounded-[10px] cursor-pointer",
-                    emotion === "STRESS" && "bg-[rgba(152,234,83,0.22)]"
+                    "flex-1 text-center text-[0.75rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
+                    emotion === "PROUD" && "text-[#E89C5F]"
                   )}
-                  type="radio"
-                  name="emotion"
-                  id="stress"
-                  value="STRESS"
-                  checked={emotion === "STRESS"}
-                  onChange={(e) =>
-                    e.target.checked &&
-                    setEmotion(e.target.value as Emotion) &&
-                    setIsSaved(false) &&
-                    setIsDeleted(false)
-                  }
-                />
-                <img
-                  className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0"
-                  src={stress1x}
-                  srcSet={`${stress2x} 2x`}
-                  alt="콩쉼이 스트레스"
-                />
-              </div>
-
-              <div className="relative flex-1 h-full">
-                <input
+                  htmlFor="proud"
+                >
+                  긍지
+                </label>
+                <label
                   className={twMerge(
-                    "w-full h-full appearance-none bg-transparent rounded-[10px] cursor-pointer",
-                    emotion === "ANGER" && "bg-[rgba(152,234,83,0.22)]"
+                    "flex-1 text-center text-[0.75rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
+                    emotion === "ANGER" && "text-[#E89C5F]"
                   )}
-                  type="radio"
-                  name="emotion"
-                  id="anger"
-                  value="ANGER"
-                  checked={emotion === "ANGER"}
-                  onChange={(e) =>
-                    e.target.checked &&
-                    setEmotion(e.target.value as Emotion) &&
-                    setIsSaved(false) &&
-                    setIsDeleted(false)
-                  }
-                />
-                <img
-                  className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0"
-                  src={anger1x}
-                  srcSet={`${anger2x} 2x`}
-                  alt="콩쉼이 분노"
-                />
+                  htmlFor="anger"
+                >
+                  분노
+                </label>
+                <label
+                  className={twMerge(
+                    "flex-1 text-center text-[0.75rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
+                    emotion === "SYMPATHY" && "text-[#E89C5F]"
+                  )}
+                  htmlFor="sympathy"
+                >
+                  연민
+                </label>
               </div>
             </div>
 
-            <div className="w-[298px] flex items-center border border-transparent">
-              <label
-                className={twMerge(
-                  "flex-1 text-center text-[1.125rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
-                  emotion === "DEPRESSION" && "text-[#E89C5F]"
-                )}
-                htmlFor="depression"
-              >
-                우울
-              </label>
-              <label
-                className={twMerge(
-                  "flex-1 text-center text-[1.125rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
-                  emotion === "PROUD" && "text-[#E89C5F]"
-                )}
-                htmlFor="proud"
-              >
-                뿌듯
-              </label>
-              <label
-                className={twMerge(
-                  "flex-1 text-center text-[1.125rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
-                  emotion === "STRESS" && "text-[#E89C5F]"
-                )}
-                htmlFor="stress"
-              >
-                스트레스
-              </label>
-              <label
-                className={twMerge(
-                  "flex-1 text-center text-[1.125rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
-                  emotion === "ANGER" && "text-[#E89C5F]"
-                )}
-                htmlFor="anger"
-              >
-                분노
-              </label>
+            <div className="flex flex-col">
+              <div className="w-[298px] h-[60px] flex items-center justify-center bg-white rounded-[10px] border border-[#EEF0F3]">
+                <div className="relative basis-[74px] h-full">
+                  <input
+                    className={twMerge(
+                      "w-full h-full appearance-none bg-transparent rounded-[10px] cursor-pointer",
+                      emotion === "SHAME" && "bg-[rgba(152,234,83,0.22)]"
+                    )}
+                    type="radio"
+                    name="emotion"
+                    id="shame"
+                    value="SHAME"
+                    checked={emotion === "SHAME"}
+                    onChange={(e) =>
+                      e.target.checked &&
+                      setEmotion(e.target.value as Emotion) &&
+                      setIsSaved(false) &&
+                      setIsDeleted(false)
+                    }
+                  />
+                  <img
+                    className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0 object-contain"
+                    src={shame1x}
+                    srcSet={`${shame2x} 2x`}
+                    alt="콩쉼이 수치"
+                  />
+                </div>
+
+                <div className="relative basis-[74px] h-full">
+                  <input
+                    className={twMerge(
+                      "w-full h-full appearance-none bg-transparent rounded-[10px] cursor-pointer",
+                      emotion === "STRESS" && "bg-[rgba(152,234,83,0.22)]"
+                    )}
+                    type="radio"
+                    name="emotion"
+                    id="stress"
+                    value="STRESS"
+                    checked={emotion === "STRESS"}
+                    onChange={(e) =>
+                      e.target.checked &&
+                      setEmotion(e.target.value as Emotion) &&
+                      setIsSaved(false) &&
+                      setIsDeleted(false)
+                    }
+                  />
+                  <img
+                    className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0 object-contain"
+                    src={stress1x}
+                    srcSet={`${stress2x} 2x`}
+                    alt="콩쉼이 좌절"
+                  />
+                </div>
+
+                <div className="relative basis-[74px] h-full">
+                  <input
+                    className={twMerge(
+                      "w-full h-full appearance-none bg-transparent rounded-[10px] cursor-pointer",
+                      emotion === "DEPRESSION" && "bg-[rgba(152,234,83,0.22)]"
+                    )}
+                    type="radio"
+                    name="emotion"
+                    id="depression"
+                    value="DEPRESSION"
+                    checked={emotion === "DEPRESSION"}
+                    onChange={(e) =>
+                      e.target.checked &&
+                      setEmotion(e.target.value as Emotion) &&
+                      setIsSaved(false) &&
+                      setIsDeleted(false)
+                    }
+                  />
+                  <img
+                    className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0 object-contain"
+                    src={depression1x}
+                    srcSet={`${depression2x} 2x`}
+                    alt="콩쉼이 슬픔"
+                  />
+                </div>
+              </div>
+
+              <div className="w-[298px] flex items-center justify-center border border-transparent">
+                <label
+                  className={twMerge(
+                    "basis-[74px] text-center text-[0.75rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
+                    emotion === "SHAME" && "text-[#E89C5F]"
+                  )}
+                  htmlFor="shame"
+                >
+                  수치
+                </label>
+                <label
+                  className={twMerge(
+                    "basis-[74px] text-center text-[0.75rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
+                    emotion === "STRESS" && "text-[#E89C5F]"
+                  )}
+                  htmlFor="stress"
+                >
+                  좌절
+                </label>
+                <label
+                  className={twMerge(
+                    "basis-[74px] text-center text-[0.75rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
+                    emotion === "DEPRESSION" && "text-[#E89C5F]"
+                  )}
+                  htmlFor="depression"
+                >
+                  슬픔
+                </label>
+              </div>
             </div>
           </div>
         </fieldset>

@@ -1,6 +1,12 @@
-import { useEffect, useMemo, useRef, useState, type FC } from "react";
+import { useMemo, useRef, useState, type FC } from "react";
 import { useHeartDrawers } from "./hooks/useHeartDrawer";
 import type { HeartDrawer } from "./shared/types";
+import pleasure1x from "./assets/pleasure.webp";
+import pleasure2x from "./assets/pleasure@2x.webp";
+import sympathy1x from "./assets/sympathy.webp";
+import sympathy2x from "./assets/sympathy@2x.webp";
+import shame1x from "./assets/shame.webp";
+import shame2x from "./assets/shame@2x.webp";
 import anger1x from "./assets/anger.webp";
 import anger2x from "./assets/anger@2x.webp";
 import depression1x from "./assets/depression.webp";
@@ -86,10 +92,6 @@ export const HeartDrawerBookMarkPage: FC = () => {
     return calendar;
   }, [heartDrawers, startDate]);
 
-  useEffect(() => {
-    console.log(calendar);
-  }, [calendar]);
-
   return (
     <div className="w-full flex-1 flex flex-col gap-4">
       <p className="text-center font-sans font-semibold text-[0.875rem] text-[#318470]">
@@ -161,6 +163,12 @@ export const HeartDrawerBookMarkPage: FC = () => {
                                 ? proud1x
                                 : heartDrawer.emotion === "STRESS"
                                 ? stress1x
+                                : heartDrawer.emotion === "PLEASURE"
+                                ? pleasure1x
+                                : heartDrawer.emotion === "SHAME"
+                                ? shame1x
+                                : heartDrawer.emotion === "SYMPATHY"
+                                ? sympathy1x
                                 : anger1x
                             }
                             srcSet={
@@ -170,6 +178,12 @@ export const HeartDrawerBookMarkPage: FC = () => {
                                 ? proud2x
                                 : heartDrawer.emotion === "STRESS"
                                 ? stress2x
+                                : heartDrawer.emotion === "PLEASURE"
+                                ? pleasure2x
+                                : heartDrawer.emotion === "SHAME"
+                                ? shame2x
+                                : heartDrawer.emotion === "SYMPATHY"
+                                ? sympathy2x
                                 : anger2x
                             }
                           />
