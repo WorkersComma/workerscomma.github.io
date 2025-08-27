@@ -402,72 +402,89 @@ export const HeartDrawerPage: FC = () => {
           </div>
         </fieldset>
 
-        <div className="w-full flex-1 min-w-[298px] max-w-3xl h-[192px] rounded-[10px] bg-white border border-[#EEF0F3] p-7 flex flex-col gap-2">
-          <fieldset className="flex gap-4 justify-center">
-            <div className="flex items-center gap-1">
-              <input
-                className="w-[60px] h-[20px] rounded-[10px] border border-[#EEF0F3] text-center font-sans font-medium text-[0.8125rem] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-inner-spin-button]:m-0"
-                type="number"
-                name="year"
-                id="year"
-                value={Number.isNaN(year) ? "" : year}
-                onChange={(e) => {
-                  setYear(parseInt(e.target.value));
-                  setIsSaved(false);
-                  setIsDeleted(false);
-                }}
-              />
+        <div className="w-full basis-[219px] min-w-[298px] not-sm:max-w-[339px] max-w-3xl rounded-[10px] bg-white border border-[#EEF0F3] p-2 flex">
+          <div className="flex-1 flex flex-col gap-2 bg-[linear-gradient(to_right,rgb(200_221_255/1)_0.3px,transparent_1px),linear-gradient(to_bottom,rgb(200_221_255/1)_0.3px,transparent_1px)] bg-[size:8px_8px] bg-clip-content">
+            <fieldset className="flex gap-4 justify-center mt-4">
+              <div className="flex items-center gap-1">
+                <input
+                  className="w-[60px] h-[20px] rounded-[10px] bg-white border border-[#EEF0F3] text-center font-sans font-medium text-[0.8125rem] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-inner-spin-button]:m-0"
+                  type="number"
+                  name="year"
+                  id="year"
+                  value={Number.isNaN(year) ? "" : year}
+                  onChange={(e) => {
+                    setYear(parseInt(e.target.value));
+                    setIsSaved(false);
+                    setIsDeleted(false);
+                  }}
+                />
 
-              <label htmlFor="year">년</label>
-            </div>
+                <label
+                  htmlFor="year"
+                  className="font-medium font-sans text-[0.8125rem]"
+                >
+                  년
+                </label>
+              </div>
 
-            <div className="flex items-center gap-1">
-              <input
-                className="w-[40px] h-[20px] rounded-[10px] border border-[#EEF0F3] text-center font-sans font-medium text-[0.8125rem] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-inner-spin-button]:m-0"
-                type="number"
-                name="month"
-                id="month"
-                value={Number.isNaN(month) ? "" : month}
-                onChange={(e) => {
-                  setMonth(parseInt(e.target.value));
-                  setIsSaved(false);
-                  setIsDeleted(false);
-                }}
-              />
-              <label htmlFor="month">월</label>
-            </div>
+              <div className="flex items-center gap-1">
+                <input
+                  className="w-[40px] h-[20px] rounded-[10px] bg-white border border-[#EEF0F3] text-center font-sans font-medium text-[0.8125rem] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-inner-spin-button]:m-0"
+                  type="number"
+                  name="month"
+                  id="month"
+                  value={Number.isNaN(month) ? "" : month}
+                  onChange={(e) => {
+                    setMonth(parseInt(e.target.value));
+                    setIsSaved(false);
+                    setIsDeleted(false);
+                  }}
+                />
+                <label
+                  htmlFor="month"
+                  className="font-medium font-sans text-[0.8125rem]"
+                >
+                  월
+                </label>
+              </div>
 
-            <div className="flex items-center gap-1">
-              <input
-                className="w-[40px] h-[20px] rounded-[10px] border border-[#EEF0F3] text-center font-sans font-medium text-[0.8125rem] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-inner-spin-button]:m-0"
-                type="number"
-                name="date"
-                id="date"
-                value={Number.isNaN(date) ? "" : date}
-                onChange={(e) => {
-                  setDate(parseInt(e.target.value));
-                  setIsSaved(false);
-                  setIsDeleted(false);
-                }}
-              />
-              <label htmlFor="date">일</label>
-            </div>
-          </fieldset>
+              <div className="flex items-center gap-1">
+                <input
+                  className="w-[40px] h-[20px] rounded-[10px] bg-white border border-[#EEF0F3] text-center font-sans font-medium text-[0.8125rem] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-inner-spin-button]:m-0"
+                  type="number"
+                  name="date"
+                  id="date"
+                  value={Number.isNaN(date) ? "" : date}
+                  onChange={(e) => {
+                    setDate(parseInt(e.target.value));
+                    setIsSaved(false);
+                    setIsDeleted(false);
+                  }}
+                />
+                <label
+                  htmlFor="date"
+                  className="font-medium font-sans text-[0.8125rem]"
+                >
+                  일
+                </label>
+              </div>
+            </fieldset>
 
-          <label htmlFor="diary" className="size-0 overflow-hidden">
-            마음 일기
-          </label>
-          <textarea
-            className="flex-1 font-sans font-medium text-[0.8125rem]"
-            name="diary"
-            id="diary"
-            value={diary}
-            onChange={(e) => {
-              setDiary(e.target.value);
-              setIsSaved(false);
-              setIsDeleted(false);
-            }}
-          />
+            <label htmlFor="diary" className="size-0 overflow-hidden">
+              마음 일기
+            </label>
+            <textarea
+              className="flex-1 font-sans font-medium text-[0.8125rem] p-2"
+              name="diary"
+              id="diary"
+              value={diary}
+              onChange={(e) => {
+                setDiary(e.target.value);
+                setIsSaved(false);
+                setIsDeleted(false);
+              }}
+            />
+          </div>
         </div>
 
         <HeartDrawerFooter
