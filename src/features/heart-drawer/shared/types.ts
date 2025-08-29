@@ -17,4 +17,5 @@ export type Emotion =
   | "PROUD"
   | "PLEASURE"
   | "SHAME"
-  | "SYMPATHY";
+  | "SYMPATHY"
+  | "APPRECIATION";

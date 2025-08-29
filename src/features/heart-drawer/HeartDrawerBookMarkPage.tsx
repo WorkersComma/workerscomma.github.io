@@ -1,6 +1,8 @@
 import { useMemo, useRef, useState, type FC } from "react";
 import { useHeartDrawers } from "./hooks/useHeartDrawer";
 import type { HeartDrawer } from "./shared/types";
+import appreciation1x from "./assets/appreciation.webp";
+import appreciation2x from "./assets/appreciation@2x.webp";
 import pleasure1x from "./assets/pleasure.webp";
 import pleasure2x from "./assets/pleasure@2x.webp";
 import sympathy1x from "./assets/sympathy.webp";
@@ -181,6 +183,8 @@ export const HeartDrawerBookMarkPage: FC = () => {
                                 ? shame1x
                                 : heartDrawer.emotion === "SYMPATHY"
                                 ? sympathy1x
+                                : heartDrawer.emotion === "APPRECIATION"
+                                ? appreciation1x
                                 : anger1x
                             }
                             srcSet={
@@ -196,6 +200,8 @@ export const HeartDrawerBookMarkPage: FC = () => {
                                 ? shame2x
                                 : heartDrawer.emotion === "SYMPATHY"
                                 ? sympathy2x
+                                : heartDrawer.emotion === "APPRECIATION"
+                                ? appreciation1x
                                 : anger2x
                             }
                           />

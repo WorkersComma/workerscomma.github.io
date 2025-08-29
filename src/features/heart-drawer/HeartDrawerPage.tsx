@@ -2,6 +2,8 @@ import { useRef, useState, type FC, type FormEventHandler } from "react";
 import { useHeartDrawers } from "./hooks/useHeartDrawer";
 import { useSearch } from "@tanstack/react-router";
 import { twMerge } from "tailwind-merge";
+import appreciation1x from "./assets/appreciation.webp";
+import appreciation2x from "./assets/appreciation@2x.webp";
 import pleasure1x from "./assets/pleasure.webp";
 import pleasure2x from "./assets/pleasure@2x.webp";
 import sympathy1x from "./assets/sympathy.webp";
@@ -142,7 +144,7 @@ export const HeartDrawerPage: FC = () => {
 
           <div className="flex flex-col gap-[12px]">
             <div className="flex flex-col">
-              <div className="w-[298px] h-[60px] flex items-center bg-white rounded-[10px] border border-[#EEF0F3]">
+              <div className="w-[298px] h-[54px] flex items-center bg-white rounded-[10px] border border-[#EEF0F3]">
                 <div className="relative flex-1 h-full">
                   <input
                     className={twMerge(
@@ -199,13 +201,13 @@ export const HeartDrawerPage: FC = () => {
                   <input
                     className={twMerge(
                       "w-full h-full appearance-none bg-transparent rounded-[10px] cursor-pointer",
-                      emotion === "ANGER" && "bg-[rgba(152,234,83,0.22)]"
+                      emotion === "APPRECIATION" && "bg-[rgba(152,234,83,0.22)]"
                     )}
                     type="radio"
                     name="emotion"
-                    id="anger"
-                    value="ANGER"
-                    checked={emotion === "ANGER"}
+                    id="appreciation"
+                    value="APPRECIATION"
+                    checked={emotion === "APPRECIATION"}
                     onChange={(e) =>
                       e.target.checked &&
                       setEmotion(e.target.value as Emotion) &&
@@ -215,9 +217,9 @@ export const HeartDrawerPage: FC = () => {
                   />
                   <img
                     className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0 object-contain"
-                    src={anger1x}
-                    srcSet={`${anger2x} 2x`}
-                    alt="콩쉼이 분노"
+                    src={appreciation1x}
+                    srcSet={`${appreciation2x} 2x`}
+                    alt="콩쉼이 감사"
                   />
                 </div>
 
@@ -270,11 +272,11 @@ export const HeartDrawerPage: FC = () => {
                 <label
                   className={twMerge(
                     "flex-1 text-center text-[0.75rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
-                    emotion === "ANGER" && "text-[#E89C5F]"
+                    emotion === "APPRECIATION" && "text-[#E89C5F]"
                   )}
-                  htmlFor="anger"
+                  htmlFor="appreciation"
                 >
-                  분노
+                  감사
                 </label>
                 <label
                   className={twMerge(
@@ -289,7 +291,59 @@ export const HeartDrawerPage: FC = () => {
             </div>
 
             <div className="flex flex-col">
-              <div className="w-[298px] h-[60px] flex items-center justify-center bg-white rounded-[10px] border border-[#EEF0F3]">
+              <div className="w-[298px] h-[54px] flex items-center justify-center bg-white rounded-[10px] border border-[#EEF0F3]">
+                <div className="relative basis-[74px] h-full">
+                  <input
+                    className={twMerge(
+                      "w-full h-full appearance-none bg-transparent rounded-[10px] cursor-pointer",
+                      emotion === "DEPRESSION" && "bg-[rgba(152,234,83,0.22)]"
+                    )}
+                    type="radio"
+                    name="emotion"
+                    id="depression"
+                    value="DEPRESSION"
+                    checked={emotion === "DEPRESSION"}
+                    onChange={(e) =>
+                      e.target.checked &&
+                      setEmotion(e.target.value as Emotion) &&
+                      setIsSaved(false) &&
+                      setIsDeleted(false)
+                    }
+                  />
+                  <img
+                    className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0 object-contain"
+                    src={depression1x}
+                    srcSet={`${depression2x} 2x`}
+                    alt="콩쉼이 슬픔"
+                  />
+                </div>
+
+                <div className="relative basis-[74px] h-full">
+                  <input
+                    className={twMerge(
+                      "w-full h-full appearance-none bg-transparent rounded-[10px] cursor-pointer",
+                      emotion === "ANGER" && "bg-[rgba(152,234,83,0.22)]"
+                    )}
+                    type="radio"
+                    name="emotion"
+                    id="anger"
+                    value="ANGER"
+                    checked={emotion === "ANGER"}
+                    onChange={(e) =>
+                      e.target.checked &&
+                      setEmotion(e.target.value as Emotion) &&
+                      setIsSaved(false) &&
+                      setIsDeleted(false)
+                    }
+                  />
+                  <img
+                    className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0 object-contain"
+                    src={anger1x}
+                    srcSet={`${anger2x} 2x`}
+                    alt="콩쉼이 분노"
+                  />
+                </div>
+
                 <div className="relative basis-[74px] h-full">
                   <input
                     className={twMerge(
@@ -341,35 +395,27 @@ export const HeartDrawerPage: FC = () => {
                     alt="콩쉼이 좌절감"
                   />
                 </div>
-
-                <div className="relative basis-[74px] h-full">
-                  <input
-                    className={twMerge(
-                      "w-full h-full appearance-none bg-transparent rounded-[10px] cursor-pointer",
-                      emotion === "DEPRESSION" && "bg-[rgba(152,234,83,0.22)]"
-                    )}
-                    type="radio"
-                    name="emotion"
-                    id="depression"
-                    value="DEPRESSION"
-                    checked={emotion === "DEPRESSION"}
-                    onChange={(e) =>
-                      e.target.checked &&
-                      setEmotion(e.target.value as Emotion) &&
-                      setIsSaved(false) &&
-                      setIsDeleted(false)
-                    }
-                  />
-                  <img
-                    className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0 object-contain"
-                    src={depression1x}
-                    srcSet={`${depression2x} 2x`}
-                    alt="콩쉼이 슬픔"
-                  />
-                </div>
               </div>
 
               <div className="w-[298px] flex items-center justify-center border border-transparent">
+                <label
+                  className={twMerge(
+                    "basis-[74px] text-center text-[0.75rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
+                    emotion === "DEPRESSION" && "text-[#E89C5F]"
+                  )}
+                  htmlFor="depression"
+                >
+                  슬픔
+                </label>
+                <label
+                  className={twMerge(
+                    "basis-[74px] text-center text-[0.75rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
+                    emotion === "ANGER" && "text-[#E89C5F]"
+                  )}
+                  htmlFor="anger"
+                >
+                  분노
+                </label>
                 <label
                   className={twMerge(
                     "basis-[74px] text-center text-[0.75rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
@@ -387,15 +433,6 @@ export const HeartDrawerPage: FC = () => {
                   htmlFor="stress"
                 >
                   좌절감
-                </label>
-                <label
-                  className={twMerge(
-                    "basis-[74px] text-center text-[0.75rem] text-[#318470] font-semibold font-sans cursor-pointer text-shadow-[0px_1px_1px_white,0px_-1px_1px_white,1px_0px_1px_white,-1px_0px_1px_white]",
-                    emotion === "DEPRESSION" && "text-[#E89C5F]"
-                  )}
-                  htmlFor="depression"
-                >
-                  슬픔
                 </label>
               </div>
             </div>
