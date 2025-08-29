@@ -201,7 +201,7 @@ export const HeartDrawerBookMarkPage: FC = () => {
                                 : heartDrawer.emotion === "SYMPATHY"
                                 ? sympathy2x
                                 : heartDrawer.emotion === "APPRECIATION"
-                                ? appreciation1x
+                                ? appreciation2x
                                 : anger2x
                             }
                           />
