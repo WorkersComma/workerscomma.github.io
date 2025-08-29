@@ -191,7 +191,7 @@ export const HeartDrawerPage: FC = () => {
                     className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0 object-contain"
                     src={proud1x}
                     srcSet={`${proud2x} 2x`}
-                    alt="콩쉼이 긍지"
+                    alt="콩쉼이 자부심"
                   />
                 </div>
 
@@ -265,7 +265,7 @@ export const HeartDrawerPage: FC = () => {
                   )}
                   htmlFor="proud"
                 >
-                  긍지
+                  자부심
                 </label>
                 <label
                   className={twMerge(
@@ -312,7 +312,7 @@ export const HeartDrawerPage: FC = () => {
                     className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0 object-contain"
                     src={shame1x}
                     srcSet={`${shame2x} 2x`}
-                    alt="콩쉼이 수치"
+                    alt="콩쉼이 수치심"
                   />
                 </div>
 
@@ -338,7 +338,7 @@ export const HeartDrawerPage: FC = () => {
                     className="w-full h-full rounded-[10px] pointer-events-none absolute z-1 top-0 left-0 object-contain"
                     src={stress1x}
                     srcSet={`${stress2x} 2x`}
-                    alt="콩쉼이 좌절"
+                    alt="콩쉼이 좌절감"
                   />
                 </div>
 
@@ -377,7 +377,7 @@ export const HeartDrawerPage: FC = () => {
                   )}
                   htmlFor="shame"
                 >
-                  수치
+                  수치심
                 </label>
                 <label
                   className={twMerge(
@@ -386,7 +386,7 @@ export const HeartDrawerPage: FC = () => {
                   )}
                   htmlFor="stress"
                 >
-                  좌절
+                  좌절감
                 </label>
                 <label
                   className={twMerge(
