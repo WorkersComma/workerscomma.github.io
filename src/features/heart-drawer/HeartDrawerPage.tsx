@@ -127,7 +127,7 @@ export const HeartDrawerPage: FC = () => {
   }
 
   return (
-    <div className="w-full flex-1 flex flex-col gap-4">
+    <div className="w-full mx-auto basis-[219px] min-w-[298px] not-sm:max-w-[339px] max-w-3xl flex-1 flex flex-col gap-4">
       <p className="text-center font-sans font-semibold text-[0.8125rem] text-[#318470]">
         <span className="text-[1rem]">근로자</span>님,
         <br />
@@ -135,10 +135,7 @@ export const HeartDrawerPage: FC = () => {
         <br />
         콩쉼이로 감정을 기록해 보세요.
       </p>
-      <form
-        className="flex-1 flex flex-col gap-4 items-center"
-        onSubmit={handleSave}
-      >
+      <form className="flex-1 flex flex-col items-center" onSubmit={handleSave}>
         <fieldset>
           <legend className="size-0 overflow-hidden">감정 선택</legend>
 
@@ -439,7 +436,7 @@ export const HeartDrawerPage: FC = () => {
           </div>
         </fieldset>
 
-        <div className="w-full basis-[219px] min-w-[298px] not-sm:max-w-[339px] max-w-3xl rounded-[10px] bg-white border border-[#EEF0F3] p-2 flex">
+        <div className="mt-4 flex-1 w-full rounded-[10px] bg-white border border-[#EEF0F3] p-2 flex">
           <div className="flex-1 flex flex-col gap-2 bg-[linear-gradient(to_right,rgb(200_221_255/1)_0.3px,transparent_1px),linear-gradient(to_bottom,rgb(200_221_255/1)_0.3px,transparent_1px)] bg-[size:8px_8px] bg-clip-content">
             <fieldset className="flex gap-4 justify-center mt-4">
               <div className="flex items-center gap-1">
